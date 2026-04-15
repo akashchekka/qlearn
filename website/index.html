@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QLearn — Quantum Computing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Quantum particle background -->
+    <canvas id="quantum-bg"></canvas>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <span class="logo-icon">⟨ψ|</span>
+                <span class="logo-text">QLearn</span>
+            </a>
+            <div class="nav-links">
+                <a href="#roadmap">Roadmap</a>
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-btn">Articles <span class="dropdown-arrow">▾</span></button>
+                    <div class="nav-dropdown-menu">
+                        <a href="#foundations">1. Foundations</a>
+                        <a href="#circuits">2. Circuits</a>
+                        <a href="#gates">3. Gates</a>
+                        <a href="#entanglement">4. Entanglement</a>
+                        <a href="#algorithms">5. Algorithms</a>
+                        <a href="#hardware">6. Hardware</a>
+                        <a href="#nisq">7. NISQ Era</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Learn <span class="gradient-text">Quantum Computing</span>
+                <br>Visually
+            </h1>
+            <p class="hero-subtitle">
+                From qubits to Shor's algorithm — animations that make
+                quantum mechanics intuitive.
+            </p>
+            <a href="#foundations" class="cta-button">
+                Start Learning
+                <span class="cta-arrow">→</span>
+            </a>
+        </div>
+        <div class="hero-equation">
+            |ψ⟩ = α|0⟩ + β|1⟩
+        </div>
+    </header>
+
+    <!-- Roadmap -->
+    <section id="roadmap" class="roadmap-section">
+        <div class="module-header">
+            <h2 class="module-title" style="color: var(--accent-cyan);">Quantum Engineer Roadmap</h2>
+            <p class="module-desc">From zero to quantum engineer — a structured learning path with clear milestones.</p>
+        </div>
+
+        <div class="roadmap">
+            <div class="roadmap-track">
+
+                <div class="roadmap-stage">
+                    <div class="roadmap-dot" style="--dot-color: var(--accent-blue);"></div>
+                    <div class="roadmap-card">
+                        <span class="roadmap-phase">Phase 1</span>
+                        <h3>Foundations</h3>
+                        <p class="roadmap-time">2–3 weeks</p>
+                        <ul>
+                            <li>Linear algebra (vectors, matrices, eigenvalues)</li>
+                            <li>Complex numbers &amp; probability</li>
+                            <li>Dirac notation (bra-ket)</li>
+                            <li>Qubits, superposition, measurement</li>
+                            <li>Bloch sphere visualization</li>
+                        </ul>
+                        <div class="roadmap-modules">Modules 1.1 – 1.4</div>
+                    </div>
+                </div>
+
+                <div class="roadmap-stage">
+                    <div class="roadmap-dot" style="--dot-color: var(--accent-green);"></div>
+                    <div class="roadmap-card">
+                        <span class="roadmap-phase">Phase 2</span>
+                        <h3>Quantum Circuits</h3>
+                        <p class="roadmap-time">1–2 weeks</p>
+                        <ul>
+                            <li>Circuit model of quantum computation</li>
+                            <li>Wires, gates, and measurement notation</li>
+                            <li>Reading and writing circuit diagrams</li>
+                            <li>Circuit depth, width, and complexity</li>
+                            <li>Parallelism and the coherence budget</li>
+                        </ul>
+                        <div class="roadmap-modules">Modules 2.1 – 2.3</div>
+                    </div>
+                </div>
+
+                <div class="roadmap-stage">
+                    <div class="roadmap-dot" style="--dot-color: var(--accent-green);"></div>
+                    <div class="roadmap-card">
+                        <span class="roadmap-phase">Phase 3</span>
+                        <h3>Quantum Gates</h3>
+                        <p class="roadmap-time">2–3 weeks</p>
+                        <ul>
+                            <li>Pauli gates (X, Y, Z), Hadamard</li>
+                            <li>Phase, rotation, and parametric gates</li>
+                            <li>Multi-qubit gates (CNOT, SWAP, Toffoli)</li>
+                            <li>Universal gate sets</li>
+                        </ul>
+                        <div class="roadmap-modules">Modules 3.1 – 3.4</div>
+                    </div>
+                </div>
+
+                <div class="roadmap-stage">
+                    <div class="roadmap-dot" style="--dot-color: var(--accent-purple);"></div>
+                    <div class="roadmap-card">
+                        <span class="roadmap-phase">Phase 4</span>
+                        <h3>Entanglement & Protocols</h3>
+                        <p class="roadmap-time">2 weeks</p>
+                        <ul>
+                            <li>Bell states and entanglement</li>
+                            <li>Quantum teleportation</li>
+                            <li>Superdense coding</li>
+                            <li>No-cloning theorem</li>
+                            <li>Quantum key distribution (BB84)</li>
+                        </ul>
+                        <div class="roadmap-modules">Modules 4.1 – 4.3</div>
+                    </div>
+                </div>
+
+                <div class="roadmap-stage">
+                    <div class="roadmap-dot" style="--dot-color: var(--accent-orange);"></div>
+                    <div class="roadmap-card">
+                        <span class="roadmap-phase">Phase 5</span>
+                        <h3>Quantum Algorithms</h3>
+                        <p class="roadmap-time">3–4 weeks</p>
+                        <ul>
+                            <li>Deutsch-Jozsa — first exponential speedup</li>
+                            <li>Grover's search — quadratic speedup</li>
+                            <li>Quantum Fourier Transform</li>
+                            <li>Shor's algorithm — factoring &amp; cryptography</li>
+                            <li>Quantum phase estimation</li>
+                        </ul>
+                        <div class="roadmap-modules">Modules 5.1 – 5.4</div>
+                    </div>
+                </div>
+
+                <div class="roadmap-stage">
+                    <div class="roadmap-dot" style="--dot-color: var(--accent-red);"></div>
+                    <div class="roadmap-card">
+                        <span class="roadmap-phase">Phase 6</span>
+                        <h3>Noise, Errors & Hardware</h3>
+                        <p class="roadmap-time">3–4 weeks</p>
+                        <ul>
+                            <li>Decoherence and quantum noise models</li>
+                            <li>Quantum error correction codes</li>
+                            <li>Fault-tolerant quantum computing</li>
+                            <li>Hardware: superconducting, trapped ions, photonic</li>
+                            <li>Qubit connectivity and compilation</li>
+                        </ul>
+                        <div class="roadmap-modules">Modules 6.1 – 6.3</div>
+                    </div>
+                </div>
+
+                <div class="roadmap-stage">
+                    <div class="roadmap-dot" style="--dot-color: var(--accent-cyan);"></div>
+                    <div class="roadmap-card">
+                        <span class="roadmap-phase">Phase 7</span>
+                        <h3>NISQ Era & Applications</h3>
+                        <p class="roadmap-time">4+ weeks</p>
+                        <ul>
+                            <li>Variational algorithms (VQE, QAOA)</li>
+                            <li>Quantum machine learning</li>
+                            <li>Quantum simulation for chemistry &amp; materials</li>
+                            <li>Quantum cryptography &amp; post-quantum security</li>
+                            <li>Qiskit / Cirq / PennyLane hands-on labs</li>
+                        </ul>
+                        <div class="roadmap-modules">Modules 7.1 – 7.4</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="roadmap-prereqs">
+            <h3>Prerequisites</h3>
+            <div class="prereq-grid">
+                <div class="prereq-item">
+                    <span class="prereq-icon">📐</span>
+                    <strong>Linear Algebra</strong>
+                    <p>Vectors, matrices, eigenvalues, tensor products. The language of quantum mechanics.</p>
+                </div>
+                <div class="prereq-item">
+                    <span class="prereq-icon">📊</span>
+                    <strong>Probability</strong>
+                    <p>Conditional probability, distributions. Needed to understand measurement outcomes.</p>
+                </div>
+                <div class="prereq-item">
+                    <span class="prereq-icon">🔢</span>
+                    <strong>Complex Numbers</strong>
+                    <p>Magnitude, phase, Euler's formula. The math behind probability amplitudes.</p>
+                </div>
+                <div class="prereq-item">
+                    <span class="prereq-icon">💻</span>
+                    <strong>Python Programming</strong>
+                    <p>For working with Qiskit, Cirq, PennyLane, and simulating quantum circuits.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Module 1: Foundations -->
+    <section id="foundations" class="module" data-module="1">
+        <div class="module-header">
+            <span class="module-number">01</span>
+            <h2 class="module-title">Foundations</h2>
+            <p class="module-desc">The building blocks of quantum information — qubits, states, and measurement.</p>
+        </div>
+
+        <div class="lessons">
+            <!-- 1.1 -->
+            <article class="lesson" id="lesson-1-1">
+                <div class="lesson-video">
+                    <video controls preload="metadata" poster="">
+                        <source src="videos/WhatIsAQubit.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="lesson-content">
+                    <span class="lesson-tag">Lesson 1.1</span>
+                    <h3>What Is a Qubit?</h3>
+                    <p>
+                        In classical computing, the smallest unit of information is a <strong>bit</strong> — a switch
+                        that is either <code>OFF (0)</code> or <code>ON (1)</code>. Every email, photo, and app
+                        on your phone is built from billions of these binary switches.
+                    </p>
+                    <p>
+                        A <strong>qubit</strong> (quantum bit) breaks this binary rule. Instead of being locked
+                        into 0 or 1, a qubit can exist in a <em>superposition</em> — a weighted combination
+                        of both states at the same time. We write this using Dirac notation:
+                    </p>
+                    <div class="math-block">|ψ⟩ = α|0⟩ + β|1⟩</div>
+                    <p>
+                        Here, <strong>α</strong> and <strong>β</strong> are complex numbers called
+                        <em>probability amplitudes</em>. They're not probabilities themselves — they're
+                        "square roots" of probabilities. The actual probability of measuring each outcome is:
+                    </p>
+                    <ul>
+                        <li>Probability of getting <code>0</code> = |α|²</li>
+                        <li>Probability of getting <code>1</code> = |β|²</li>
+                    </ul>
+                    <p>Since probabilities must add to 100%, we always have:</p>
+                    <div class="math-block">|α|² + |β|² = 1</div>
+                    <p>
+                        <strong>Concrete example:</strong> If α = 1/√2 and β = 1/√2, then |α|² = 1/2 and |β|² = 1/2.
+                        You'd measure <code>0</code> half the time and <code>1</code> half the time — like a fair coin flip,
+                        but governed by quantum mechanics.
+                    </p>
+                    <p>
+                        <strong>Why complex numbers?</strong> Because amplitudes carry both a magnitude (how likely)
+                        and a <em>phase</em> (a hidden angle). Phase is invisible in a single measurement,
+                        but when multiple qubits interact, their phases can <em>interfere</em> — amplifying correct
+                        answers and cancelling wrong ones. This is the core mechanism behind quantum speedups.
+                    </p>
+                    <div class="key-insight">
+                        <strong>Key Insight:</strong> A qubit is not "0 or 1" and not "0 and 1" —
+                        it's a precisely controlled blend of both, described by two complex amplitudes.
+                        This is fundamentally different from classical randomness because the amplitudes
+                        can interfere with each other.
+                    </div>
+                    <div class="code-tabs">
+                        <div class="code-tabs-header">
+                            <button class="code-tab-btn active" data-tab="qiskit">Qiskit</button>
+                            <button class="code-tab-btn" data-tab="qsharp">Q#</button>
+                        </div>
+                        <div class="code-tab-content active" data-tab="qiskit"><pre>
+from qiskit import QuantumCircuit
+from qiskit.quantum_info import Statevector
+import numpy as np
+
+# Create a qubit in superposition
+qc = QuantumCircuit(1)
+qc.initialize([1/np.sqrt(2), 1/np.sqrt(2)], 0)
+
+# View the state vector
+state = Statevector.from_instruction(qc)
+print(state)  # [0.707+0j, 0.707+0j]
+print(state.probabilities())  # [0.5, 0.5]
+</pre></div>
+                        <div class="code-tab-content" data-tab="qsharp"><pre>
+import Std.Diagnostics.*;
+import Std.Math.*;
+
+operation Qubit_Superposition() : Result {
+    use q = Qubit();
+    // Put qubit into equal superposition
+    H(q);
+    DumpMachine();  // Shows |0⟩ and |1⟩ with 50% each
+    let result = M(q);
+    Reset(q);
+    return result;
+}
+</pre></div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 1.2 -->
+            <article class="lesson" id="lesson-1-2">
+                <div class="lesson-video">
+                    <video controls preload="metadata">
+                        <source src="videos/BlochSphereScene.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="lesson-content">
+                    <span class="lesson-tag">Lesson 1.2</span>
+                    <h3>The Bloch Sphere</h3>
+                    <p>
+                        A qubit has two complex amplitudes (α and β), but the normalization constraint
+                        and the irrelevance of global phase reduce this to just <strong>two real parameters</strong>.
+                        That means every qubit state maps to a point on the surface of a sphere — the
+                        <strong>Bloch sphere</strong>.
+                    </p>
+                    <p><strong>Landmark states on the sphere:</strong></p>
+                    <ul>
+                        <li><strong>North pole</strong> → |0⟩ (100% probability of measuring 0)</li>
+                        <li><strong>South pole</strong> → |1⟩ (100% probability of measuring 1)</li>
+                        <li><strong>Equator (+X)</strong> → |+⟩ = (1/√2)(|0⟩ + |1⟩) — equal superposition, positive phase</li>
+                        <li><strong>Equator (−X)</strong> → |−⟩ = (1/√2)(|0⟩ − |1⟩) — equal superposition, negative phase</li>
+                    </ul>
+                    <p>The general state is parameterized by two angles, θ (polar) and φ (azimuthal):</p>
+                    <div class="math-block">|ψ⟩ = cos(θ/2)|0⟩ + e^(iφ) sin(θ/2)|1⟩</div>
+                    <p><strong>What each angle controls:</strong></p>
+                    <ul>
+                        <li><strong>θ</strong> — the "latitude". Controls the probability balance between |0⟩ and |1⟩.
+                            At θ=0 you're at the north pole (all |0⟩). At θ=π you're at the south pole (all |1⟩).
+                            At θ=π/2 you're on the equator (50/50).</li>
+                        <li><strong>φ</strong> — the "longitude". Controls the <em>relative phase</em> between |0⟩ and |1⟩.
+                            This angle is invisible if you only measure in the standard basis, but it becomes
+                            critical when qubits interact — phase differences drive constructive and destructive interference.</li>
+                    </ul>
+                    <p>
+                        Every single-qubit gate is a rotation on this sphere. An X gate is a 180° flip
+                        around the X-axis. A Hadamard is a rotation from the pole to the equator.
+                        Understanding the Bloch sphere makes gate behavior intuitive.
+                    </p>
+                    <div class="key-insight">
+                        <strong>Key Insight:</strong> The Bloch sphere turns abstract linear algebra into
+                        geometric intuition. Quantum gates = rotations. Superposition = equator.
+                        Phase = longitude. Every single-qubit operation is a 3D rotation.
+                    </div>
+                </div>
+            </article>
+
+            <!-- 1.3 -->
+            <article class="lesson" id="lesson-1-3">
+                <div class="lesson-video">
+                    <video controls preload="metadata">
+                        <source src="videos/SuperpositionScene.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="lesson-content">
+                    <span class="lesson-tag">Lesson 1.3</span>
+                    <h3>Superposition</h3>
+                    <p>
+                        <strong>The coin analogy:</strong> Imagine flipping a coin. While it's spinning
+                        in the air, you can't call it heads or tails — it has some "potential" for each.
+                        A qubit in superposition is similar, except it's not randomness — the exact blend
+                        is precisely controlled and <em>deterministic</em> until you measure.
+                    </p>
+                    <p>
+                        <strong>Equal superposition</strong> means 50/50 probability — you're equally likely
+                        to measure 0 or 1:
+                    </p>
+                    <div class="math-block">|+⟩ = (1/√2)|0⟩ + (1/√2)|1⟩  →  P(0) = 50%, P(1) = 50%</div>
+                    <p>
+                        <strong>Unequal superposition</strong> gives skewed probabilities. The amplitudes
+                        control how "much" of each state is present:
+                    </p>
+                    <div class="math-block">|ψ⟩ = (1/2)|0⟩ + (√3/2)|1⟩  →  P(0) = 25%, P(1) = 75%</div>
+                    <p>
+                        <strong>The exponential power:</strong> A single qubit encodes one superposition.
+                        But <strong>n qubits</strong> in superposition encode <strong>2ⁿ states at once</strong>.
+                        This scaling is staggering:
+                    </p>
+                    <ul>
+                        <li><strong>10 qubits</strong> → 1,024 states simultaneously</li>
+                        <li><strong>50 qubits</strong> → over 1 quadrillion states (more than any classical supercomputer can track)</li>
+                        <li><strong>300 qubits</strong> → more states than atoms in the observable universe (2³⁰⁰ ≈ 10⁹⁰)</li>
+                    </ul>
+                    <p>
+                        <strong>The catch:</strong> You can't read all 2ⁿ values — measurement collapses
+                        the superposition to a single outcome. The art of quantum algorithms is designing
+                        interference patterns that funnel probability toward the correct answer.
+                    </p>
+                    <p>
+                        <strong>Real-world analogy:</strong> Think of superposition like a library
+                        where you can search all books simultaneously, but you can only check out one book.
+                        The skill is in designing the search so the book you check out is always the right one.
+                    </p>
+                    <div class="key-insight">
+                        <strong>Key Insight:</strong> Superposition gives quantum computers exponential
+                        state space — but extracting useful information requires clever algorithm design
+                        that uses interference to amplify correct answers.
+                    </div>
+                    <div class="code-tabs">
+                        <div class="code-tabs-header">
+                            <button class="code-tab-btn active" data-tab="qiskit">Qiskit</button>
+                            <button class="code-tab-btn" data-tab="qsharp">Q#</button>
+                        </div>
+                        <div class="code-tab-content active" data-tab="qiskit"><pre>
+from qiskit import QuantumCircuit
+from qiskit.quantum_info import Statevector
+
+# Equal superposition via Hadamard
+qc = QuantumCircuit(3)
+qc.h([0, 1, 2])  # H on all 3 qubits
+
+state = Statevector.from_instruction(qc)
+print(f"Number of states: {len(state)}")
+# Output: 8 states (2^3), each with amplitude 1/√8
+print(state.probabilities())  # [0.125] * 8
+</pre></div>
+                        <div class="code-tab-content" data-tab="qsharp"><pre>
+import Std.Diagnostics.*;
+
+operation Superposition_3Qubits() : Result[] {
+    use qubits = Qubit[3];
+    // Put all qubits in superposition
+    for q in qubits {
+        H(q);
+    }
+    DumpMachine();  // Shows 8 states with equal probability
+    let results = MeasureEachZ(qubits);
+    ResetAll(qubits);
+    return results;
+}
+</pre></div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 1.4 -->
+            <article class="lesson" id="lesson-1-4">
+                <div class="lesson-video">
+                    <video controls preload="metadata">
+                        <source src="videos/MeasurementScene.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="lesson-content">
+                    <span class="lesson-tag">Lesson 1.4</span>
+                    <h3>Measurement</h3>
+                    <p>
+                        Measurement is where the quantum world meets classical reality. When you measure
+                        a qubit in state α|0⟩ + β|1⟩, something dramatic happens — the superposition
+                        <strong>collapses</strong>:
+                    </p>
+                    <ul>
+                        <li>You get result <code>0</code> with probability |α|², and the qubit snaps to state |0⟩</li>
+                        <li>You get result <code>1</code> with probability |β|², and the qubit snaps to state |1⟩</li>
+                    </ul>
+                    <p><strong>Three crucial properties of measurement:</strong></p>
+                    <ol>
+                        <li><strong>Probabilistic:</strong> You cannot predict which outcome you'll get on a single shot — only the probabilities are determined.</li>
+                        <li><strong>Irreversible:</strong> After measurement, the superposition is gone. You cannot "un-measure" to recover the original state.</li>
+                        <li><strong>Disturbing:</strong> Measurement changes the state. The qubit is now in a definite classical state, not the original superposition.</li>
+                    </ol>
+                    <p>
+                        <strong>How do we get reliable answers then?</strong> Two approaches:
+                    </p>
+                    <ul>
+                        <li><strong>Repetition:</strong> Prepare the same state many times, measure each copy, and build up a histogram. After 1,000 shots on a 50/50 state, you'll see ~500 zeros and ~500 ones.</li>
+                        <li><strong>Amplitude amplification:</strong> Design the algorithm so the correct answer has probability close to 100% <em>before</em> you measure. Then one shot is enough.</li>
+                    </ul>
+                    <div class="key-insight">
+                        <strong>Key Insight:</strong> Measurement collapses superposition — it's probabilistic and irreversible.
+                        The entire art of quantum algorithm design is arranging interference so the correct answer's
+                        amplitude is large before you measure.
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Module 2: Quantum Circuits -->
+    <section id="circuits" class="module" data-module="2">
+        <div class="module-header">
+            <span class="module-number">02</span>
+            <h2 class="module-title">Quantum Circuits</h2>
+            <p class="module-desc">The language of quantum computation — how algorithms are expressed as circuits of wires, gates, and measurements.</p>
+        </div>
+
+        <div class="lessons">
+            <!-- 2.1 -->
+            <article class="lesson" id="lesson-2-1">
+                <div class="lesson-video">
+                    <video controls preload="metadata">
+                        <source src="videos/WhatIsACircuitScene.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="lesson-content">
+                    <span class="lesson-tag">Lesson 2.1</span>
+                    <h3>What Is a Quantum Circuit?</h3>
+                    <p>
+                        In classical computing, circuits are physical paths of electrical current through
+                        logic gates (AND, OR, NOT). In quantum computing, a <strong>quantum circuit</strong>
+                        is an abstract diagram that describes a sequence of operations on qubits.
+                    </p>
+                    <p>
+                        A quantum circuit has three components:
+                    </p>
+                    <ul>
+                        <li><strong>Wires:</strong> Horizontal lines, each representing one qubit. The state flows
+                            from left to right as time progresses.</li>
+                        <li><strong>Gates:</strong> Boxes or symbols placed on wires. Each gate is a
+                            <em>unitary operation</em> — a reversible transformation of the qubit's state.</li>
+                        <li><strong>Measurements:</strong> Meter symbols at the end of wires. Measurement
+                            collapses the quantum state to a classical bit (0 or 1).</li>
+                    </ul>
+                    <p>
+                        <strong>Key difference from classical circuits:</strong> Quantum gates are always
+                        <em>reversible</em>. For every gate, there's an "undo" gate. Classical AND/OR gates
+                        destroy information (you can't recover inputs from the output), but quantum gates
+                        preserve it. This reversibility is required by quantum mechanics.
+                    </p>
+                    <p>
+                        <strong>The circuit model</strong> is the standard way to describe quantum algorithms.
+                        When someone says "run this algorithm on a quantum computer," they mean: compile
+                        the algorithm into a circuit of elementary gates, then execute those gates on hardware.
+                    </p>
+                    <div class="key-insight">
+                        <strong>Key Insight:</strong> A quantum circuit is the "assembly language" of quantum
+                        computing. Every quantum algorithm — from Shor's factoring to VQE chemistry — is
+                        ultimately expressed as a sequence of gates on wires. Learning to read circuits
+                        is like learning to read sheet music for quantum computation.
+                    </div>
+                    <div class="code-tabs">
+                        <div class="code-tabs-header">
+                            <button class="code-tab-btn active" data-tab="qiskit">Qiskit</button>
+                            <button class="code-tab-btn" data-tab="qsharp">Q#</button>
+                        </div>
+                        <div class="code-tab-content active" data-tab="qiskit"><pre>
+from qiskit import QuantumCircuit
+
+# Build a simple Bell state circuit
+qc = QuantumCircuit(2, 2)
+qc.h(0)           # Hadamard on qubit 0
+qc.cx(0, 1)       # CNOT: control=0, target=1
+qc.measure([0,1], [0,1])
+
+print(qc.draw())  # Text diagram of the circuit
+#      ┌───┐     ┌─┐
+# q_0: ┤ H ├──■──┤M├
+#      └───┘┌─┴─┐└╥┘
+# q_1: ─────┤ X ├─╫─
+#           └───┘ ║
+</pre></div>
+                        <div class="code-tab-content" data-tab="qsharp"><pre>
+import Std.Diagnostics.*;
+
+operation BellCircuit() : (Result, Result) {
+    use (q0, q1) = (Qubit(), Qubit());
+    H(q0);          // Hadamard on qubit 0
+    CNOT(q0, q1);   // CNOT: control=q0, target=q1
+    DumpMachine();   // View the entangled state
+    let r0 = M(q0);
+    let r1 = M(q1);
+    ResetAll([q0, q1]);
+    return (r0, r1); // Always same: (Zero,Zero) or (One,One)
+}
+</pre></div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 2.2 -->
+            <article class="lesson" id="lesson-2-2">
+                <div class="lesson-video">
+                    <video controls preload="metadata">
+                        <source src="videos/CircuitNotationScene.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="lesson-content">
+                    <span class="lesson-tag">Lesson 2.2</span>
+                    <h3>Circuit Notation</h3>
+                    <p>
+                        Quantum circuit diagrams use a compact visual notation that conveys a lot of
+                        information at a glance. Here's how to read them:
+                    </p>
+                    <p><strong>Wire labels:</strong></p>
+                    <ul>
+                        <li><strong>|0⟩</strong> or <strong>|1⟩</strong> — qubit initialized to a known state</li>
+                        <li><strong>|ψ⟩</strong> — qubit in an arbitrary or unknown state</li>
+                        <li><strong>q₀, q₁, ...</strong> — qubit index labels (common in Qiskit, Cirq)</li>
+                    </ul>
+                    <p><strong>Gate symbols:</strong></p>
+                    <ul>
+                        <li><strong>Boxes with letters</strong> (H, X, Z, U) — single-qubit gates applied to one wire</li>
+                        <li><strong>Filled dot + ⊕</strong> — CNOT gate. The dot is the <em>control</em> qubit,
+                            the ⊕ is the <em>target</em>. A vertical line connects them.</li>
+                        <li><strong>Filled dot + box</strong> — controlled-U gate. Control qubit decides whether
+                            gate U is applied to the target.</li>
+                        <li><strong>× — ×</strong> connected by a line — SWAP gate, exchanging two qubit states</li>
+                        <li><strong>Meter arc</strong> — measurement, producing a classical bit</li>
+                    </ul>
+                    <p><strong>Reading order:</strong> Gates in the same column happen simultaneously
+                        (if they act on different qubits). Gates to the left happen before gates to the right.
+                        This left-to-right ordering corresponds to matrix multiplication in reverse — the
+                        rightmost matrix in the product is the first gate applied.
+                    </p>
+                    <p>
+                        <strong>From equation to circuit:</strong> The equation
+                        <code>CNOT · (H ⊗ I) |00⟩</code> translates to: two wires starting at |0⟩,
+                        an H gate on the top wire, then a CNOT from top to bottom. This creates the
+                        Bell state — the most famous 2-qubit circuit in quantum computing.
+                    </p>
+                    <div class="key-insight">
+                        <strong>Key Insight:</strong> Circuit diagrams are the universal language of quantum
+                        computing. Every paper, textbook, and SDK uses them. Once you can read a circuit
+                        diagram, you can understand any quantum algorithm at the implementation level.
+                    </div>
+                </div>
+            </article>
+
+            <!-- 2.3 -->
+            <article class="lesson" id="lesson-2-3">
+                <div class="lesson-video">
+                    <video controls preload="metadata">
+                        <source src="videos/CircuitDepthScene.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="lesson-content">
+                    <span class="lesson-tag">Lesson 2.3</span>
+                    <h3>Circuit Depth & Complexity</h3>
+                    <p>
+                        Not all circuits are created equal. Two circuits might compute the same result,
+                        but one could be dramatically more practical on real hardware. The key metrics are
+                        <strong>width</strong>, <strong>depth</strong>, and <strong>gate count</strong>.
+                    </p>
+                    <p><strong>Circuit width</strong> = number of qubits (wires). This determines how many
+                        physical qubits you need on the hardware. Current machines have 50–1,000 qubits,
+                        so width is a hard constraint.</p>
+                    <p><strong>Circuit depth</strong> = number of time steps (layers of gates). Gates on
+                        different qubits in the same layer run in parallel. Depth measures the
+                        <em>sequential</em> time the circuit takes.</p>
+                    <p><strong>Gate count</strong> = total number of gate operations. More gates = more
+                        opportunities for errors to accumulate.</p>
+                    <p><strong>Why depth matters most on real hardware:</strong></p>
+                    <ul>
+                        <li>Qubits lose their quantum properties over time (<em>decoherence</em>)</li>
+                        <li>Each qubit has a <strong>coherence time</strong> T₂ (typically ~100 μs)</li>
+                        <li>Each gate takes ~20–50 ns</li>
+                        <li>A circuit of depth 2,000 takes ~100 μs — right at the coherence limit</li>
+                        <li><strong>Deeper circuits = more noise = worse results</strong></li>
+                    </ul>
+                    <p>
+                        <strong>Optimizing circuits:</strong> Quantum compilers (like Qiskit's transpiler)
+                        automatically reduce depth by: cancelling redundant gates, merging sequential
+                        rotations, and rescheduling gates to maximize parallelism. Circuit optimization
+                        is an active research area — even a 10% depth reduction can make the difference
+                        between a useful result and noise.
+                    </p>
+                    <p>
+                        <strong>The parallelism advantage:</strong> If gates act on independent qubits,
+                        they can execute in the same time step. Three H gates on three different qubits
+                        have a depth of 1, not 3. Exploiting parallelism is how clever circuit design
+                        keeps depth manageable.
+                    </p>
+                    <div class="key-insight">
+                        <strong>Key Insight:</strong> Circuit depth is the critical bottleneck on real
+                        quantum hardware. Shallower circuits finish before decoherence destroys the
+                        computation. A quantum engineer's job is to express algorithms with minimum depth.
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Module 3: Quantum Gates -->
+    <section id="gates" class="module" data-module="3">
+        <div class="module-header">
+            <span class="module-number">03</span>
+            <h2 class="module-title">Quantum Gates</h2>
+            <p class="module-desc">The operations that manipulate qubits — rotations, flips, and multi-qubit interactions.</p>
+        </div>
+
+        <div class="lessons">
+            <article class="lesson" id="lesson-3-1">
+                <div class="lesson-video">
+                    <video controls preload="metadata">
+                        <source src="videos/PauliGatesScene.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="lesson-content">
+                    <span class="lesson-tag">Lesson 3.1</span>
+                    <h3>Pauli Gates (X, Y, Z)</h3>
+                    <p>
+                        Just as classical logic uses NOT, AND, and OR gates to process bits, quantum computing
+                        uses <strong>quantum gates</strong> to manipulate qubits. The three <strong>Pauli gates</strong>
+                        are the most fundamental — each is a 180° (π) rotation on the Bloch sphere around a different axis.
+                    </p>
+                    <p><strong>X Gate — the Quantum NOT:</strong></p>
+                    <div class="math-block">X|0⟩ = |1⟩     X|1⟩ = |0⟩</div>
+                    <p>
+                        Swaps |0⟩ and |1⟩ — exactly like a classical NOT gate. On the Bloch sphere,
+                        it's a 180° rotation around the X-axis, flipping the north and south poles.
+                    </p>
+                    <p><strong>Z Gate — the Phase Flip:</strong></p>
+                    <div class="math-block">Z|0⟩ = |0⟩     Z|1⟩ = −|1⟩</div>
+                    <p>
+                        Leaves |0⟩ untouched but flips the <em>sign</em> of |1⟩. This doesn't change
+                        measurement probabilities at all (|−1|² = 1²), so why does it matter?
+                        Because the minus sign affects how qubits <em>interfere</em> with each other.
+                        Phase is the hidden lever of quantum computing.
+                    </p>
+                    <p><strong>Y Gate — Both at Once:</strong></p>
+                    <div class="math-block">Y|0⟩ = i|1⟩     Y|1⟩ = −i|0⟩</div>
+                    <p>
+                        Combines a bit flip and a phase flip. Used less often in basic algorithms
+                        but important for completeness — together, X, Y, Z span all possible
+                        single-qubit rotations.
+                    </p>
+                    <p>
+                        <strong>Key property:</strong> Each Pauli gate is its own inverse.
+                        Apply it twice and you're back where you started: X·X = Y·Y = Z·Z = I.
+                    </p>
+                    <div class="key-insight">
+                        <strong>Key Insight:</strong> X flips the <em>value</em>, Z flips the <em>phase</em>,
+                        Y flips both. Phase changes are invisible in isolation but drive interference —
+                        the engine of every quantum algorithm.
+                    </div>
+                </div>
+            </article>
+
+            <article class="lesson" id="lesson-3-2">
+                <div class="lesson-video">
+                    <video controls preload="metadata">
+                        <source src="videos/HadamardGateScene.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="lesson-content">
+                    <span class="lesson-tag">Lesson 3.2</span>
+                    <h3>The Hadamard Gate</h3>
+                    <p>
+                        If there's one gate you need to understand deeply, it's the <strong>Hadamard gate (H)</strong>.
+                        It's the bridge between the classical and quantum worlds — it takes a definite
+                        state and creates a perfect superposition.
+                    </p>
+                    <p><strong>What H does — in plain terms:</strong></p>
+                    <ul>
+                        <li>Takes a qubit that's definitely <code>0</code> → puts it in a 50/50 superposition of 0 and 1</li>
+                        <li>Takes a qubit that's definitely <code>1</code> → also 50/50, but with a crucial minus sign</li>
+                    </ul>
+                    <div class="math-block">H|0⟩ = (1/√2)(|0⟩ + |1⟩) = |+⟩</div>
+                    <div class="math-block">H|1⟩ = (1/√2)(|0⟩ − |1⟩) = |−⟩</div>
+                    <p>
+                        <strong>That minus sign matters.</strong> Both |+⟩ and |−⟩ give 50/50 when measured,
+                        but when combined with other qubits, the plus vs minus causes constructive
+                        or destructive interference — which is how quantum algorithms distinguish
+                        correct from incorrect answers.
+                    </p>
+                    <p>
+                        <strong>Self-inverse property:</strong> <code>H · H = I</code>. Apply Hadamard
+                        twice and you return to the original state. This means Hadamard can both
+                        <em>create</em> and <em>undo</em> superposition.
+                    </p>
+                    <p>
+                        <strong>On the Bloch sphere:</strong> H rotates 180° around the axis halfway
+                        between X and Z. It maps the north pole (|0⟩) to the equator (|+⟩) and back.
+                    </p>
+                    <p>
+                        <strong>Why it's everywhere:</strong> Nearly every quantum algorithm starts by
+                        applying H to every qubit. For n qubits, this creates an equal superposition
+                        of all 2ⁿ possible inputs — the starting point for quantum parallelism.
+                    </p>
+                    <div class="key-insight">
+                        <strong>Key Insight:</strong> Hadamard is the "on-ramp" to quantum computing.
+                        It creates superposition (enabling parallelism) and its self-inverse property
+                        lets algorithms switch between the computational and superposition bases freely.
+                    </div>
+                    <div class="code-tabs">
+                        <div class="code-tabs-header">
+                            <button class="code-tab-btn active" data-tab="qiskit">Qiskit</button>
+                            <button class="code-tab-btn" data-tab="qsharp">Q#</button>
+                        </div>
+                        <div class="code-tab-content active" data-tab="qiskit"><pre>
+from qiskit import QuantumCircuit
+from qiskit.quantum_info import Statevector
+
+qc = QuantumCircuit(1)
+qc.h(0)  # |0⟩ → |+⟩
+state = Statevector.from_instruction(qc)
+print(state)  # [0.707, 0.707] = |+⟩
+
+qc.h(0)  # Apply H again: |+⟩ → |0⟩
+state = Statevector.from_instruction(qc)
+print(state)  # [1, 0] = |0⟩  (H is self-inverse)
+</pre></div>
+                        <div class="code-tab-content" data-tab="qsharp"><pre>
+import Std.Diagnostics.*;
+
+operation HadamardDemo() : Result {
+    use q = Qubit();
+    H(q);            // |0⟩ → |+⟩
+    DumpMachine();    // 50/50 superposition
+
+    H(q);            // |+⟩ → |0⟩ (self-inverse!)
+    DumpMachine();    // Back to |0⟩ with certainty
+
+    let r = M(q);    // Always Zero
+    Reset(q);
+    return r;
+}
+</pre></div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="lesson" id="lesson-3-3">
+                <div class="lesson-video">
+                    <video controls preload="metadata">
+                        <source src="videos/PhaseGatesScene.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="lesson-content">
+                    <span class="lesson-tag">Lesson 3.3</span>
+                    <h3>Phase & Rotation Gates</h3>
+                    <p>
+                        Pauli gates are "all or nothing" — each does a full 180° rotation. But quantum
+                        algorithms often need <em>finer control</em>: partial rotations and precise
+                        phase adjustments. That's where phase and rotation gates come in.
+                    </p>
+                    <p><strong>The Phase Gate Family:</strong></p>
+                    <ul>
+                        <li><strong>Z gate:</strong> Adds π (180°) phase to |1⟩ — you already know this one</li>
+                        <li><strong>S gate (√Z):</strong> Adds π/2 (90°) phase to |1⟩ — applying S twice gives Z</li>
+                        <li><strong>T gate (√S):</strong> Adds π/4 (45°) phase to |1⟩ — the smallest "standard" phase rotation.
+                            The T gate is especially important because it's the key to <em>fault-tolerant</em>
+                            quantum computing and is often the most expensive gate to implement on real hardware.</li>
+                    </ul>
+                    <p>
+                        <strong>Why does phase matter if you can't see it?</strong> Consider two qubits
+                        in superposition that are later combined. If their phases align (+, +), their
+                        amplitudes add up (<em>constructive interference</em>). If phases oppose (+, −),
+                        they cancel (<em>destructive interference</em>). This is how quantum algorithms
+                        selectively amplify correct answers.
+                    </p>
+                    <p><strong>General Rotation Gates:</strong></p>
+                    <ul>
+                        <li><strong>R<sub>x</sub>(θ):</strong> Rotates by angle θ around the X-axis — mixes |0⟩ and |1⟩</li>
+                        <li><strong>R<sub>y</sub>(θ):</strong> Rotates by θ around the Y-axis — changes probability balance without adding phase</li>
+                        <li><strong>R<sub>z</sub>(θ):</strong> Rotates by θ around the Z-axis — adjusts phase without changing probabilities</li>
+                    </ul>
+                    <p>
+                        <strong>Universality theorem:</strong> Any single-qubit gate — no matter how complex —
+                        can be decomposed into just R<sub>z</sub> and R<sub>y</sub> rotations plus a global phase.
+                        This means a quantum computer only needs a small set of basic rotations to perform
+                        <em>any</em> single-qubit operation.
+                    </p>
+                    <div class="key-insight">
+                        <strong>Key Insight:</strong> Phase is the "hidden variable" of quantum computing.
+                        You never see it directly, but it orchestrates interference — the mechanism that
+                        makes quantum algorithms faster than classical ones.
+                    </div>
+                </div>
+            </article>
+
+            <article class="lesson" id="lesson-3-4">
+                <div class="lesson-video">
+                    <video controls preload="metadata">
+                        <source src="videos/MultiQubitGatesScene.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="lesson-content">
+                    <span class="lesson-tag">Lesson 3.4</span>
+                    <h3>Multi-Qubit Gates</h3>
+                    <p>
+                        Everything so far has been single-qubit operations — spinning one qubit on its
+                        Bloch sphere. But single-qubit gates alone can never make qubits <em>talk to each other</em>.
+                        To create entanglement and correlations, we need <strong>multi-qubit gates</strong>.
+                    </p>
+                    <p><strong>CNOT (Controlled-NOT) — the most important two-qubit gate:</strong></p>
+                    <div class="math-block">If control = |0⟩ → target unchanged
+If control = |1⟩ → target gets flipped (NOT)</div>
+                    <p>
+                        Think of it as a quantum <code>if</code> statement: the control qubit decides whether to flip
+                        the target. The truth table shows:
+                    </p>
+                    <ul>
+                        <li>|00⟩ → |00⟩ (control is 0, nothing happens)</li>
+                        <li>|01⟩ → |01⟩ (control is 0, nothing happens)</li>
+                        <li>|10⟩ → |1<strong>1</strong>⟩ (control is 1, target <strong>flipped</strong>)</li>
+                        <li>|11⟩ → |1<strong>0</strong>⟩ (control is 1, target <strong>flipped</strong>)</li>
+                    </ul>
+                    <p>
+                        <strong>Why it matters:</strong> When the control qubit is in <em>superposition</em>,
+                        CNOT creates <em>entanglement</em>. The combination H + CNOT is the standard
+                        recipe for creating Bell states (Lesson 3.1).
+                    </p>
+                    <p><strong>SWAP Gate:</strong> Exchanges two qubit states entirely. |a,b⟩ → |b,a⟩.
+                        This can be built from three CNOTs. Needed when qubits on non-adjacent positions
+                        need to interact on real hardware.
+                    </p>
+                    <p><strong>Toffoli Gate (CCNOT):</strong> A three-qubit gate — flips the target only when
+                        <em>both</em> controls are |1⟩. It can implement any classical Boolean function,
+                        making it <em>universal for classical computation</em>. Combined with Hadamard,
+                        it becomes universal for quantum computation too.
+                    </p>
+                    <p>
+                        <strong>Universal gate set:</strong> CNOT + arbitrary single-qubit rotations can build
+                        <em>any</em> quantum circuit. This is like how NAND gates can build any classical circuit —
+                        a small toolkit from which all complexity emerges.
+                    </p>
+                    <div class="key-insight">
+                        <strong>Key Insight:</strong> Multi-qubit gates introduce <em>conditional logic</em>
+                        at the quantum level. CNOT is the fundamental building block — it creates entanglement
+                        when applied to superposed qubits, which is the basis for all quantum advantage.
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Module 4: Entanglement -->
+    <section id="entanglement" class="module" data-module="4">
+        <div class="module-header">
+            <span class="module-number">04</span>
+            <h2 class="module-title">Entanglement</h2>
+            <p class="module-desc">Quantum correlations that defy classical intuition — the resource that powers quantum protocols.</p>
+        </div>
+
+        <div class="lessons">
+            <article class="lesson" id="lesson-4-1">
+                <div class="lesson-video">
+                    <video controls preload="metadata">
+                        <source src="videos/BellStatesScene.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="lesson-content">
+                    <span class="lesson-tag">Lesson 4.1</span>
+                    <h3>Bell States & Entanglement</h3>
+                    <p>
+                        <strong>Entanglement</strong> is the phenomenon that Einstein famously called
+                        "spooky action at a distance." It's the strongest type of correlation in nature
+                        and has <em>no classical equivalent</em>.
+                    </p>
+                    <p><strong>How to create entanglement:</strong> Start with two qubits in state |00⟩,
+                        apply Hadamard to the first, then CNOT with the first as control:
+                    </p>
+                    <div class="math-block">|00⟩ → H⊗I → (1/√2)(|0⟩+|1⟩)|0⟩ → CNOT → (1/√2)(|00⟩+|11⟩)</div>
+                    <p>
+                        This final state is called <strong>|Φ⁺⟩</strong>, one of four <strong>Bell states</strong>.
+                        It <em>cannot</em> be written as a product of two separate qubit states — the qubits
+                        are fundamentally linked.
+                    </p>
+                    <p><strong>What does entanglement mean concretely?</strong></p>
+                    <ul>
+                        <li>If you measure Qubit A and get <code>0</code>, Qubit B is <em>guaranteed</em> to be <code>0</code></li>
+                        <li>If you measure Qubit A and get <code>1</code>, Qubit B is <em>guaranteed</em> to be <code>1</code></li>
+                        <li>This holds <em>regardless of distance</em> — the qubits could be in different cities</li>
+                        <li>Each individual qubit appears completely random (50/50) when measured alone</li>
+                    </ul>
+                    <p>
+                        <strong>Classical analogy (that falls short):</strong> Put a red ball in one box
+                        and a blue ball in another. Ship the boxes apart. Opening one reveals the other's
+                        color. But entanglement is <em>fundamentally different</em>: Bell's theorem proves
+                        that the qubits don't have predetermined values. The outcome is truly decided
+                        at the moment of measurement.
+                    </p>
+                    <p><strong>The four Bell states</strong> form a complete basis for 2-qubit entanglement:</p>
+                    <div class="math-block">|Φ±⟩ = (1/√2)(|00⟩ ± |11⟩)   — same outcomes, correlated
+|Ψ±⟩ = (1/√2)(|01⟩ ± |10⟩)   — opposite outcomes, anti-correlated</div>
+                    <div class="key-insight">
+                        <strong>Key Insight:</strong> Entanglement creates correlations stronger than
+                        anything possible classically. It's not communication — it's a shared quantum
+                        resource that enables teleportation, secure key distribution, and computational
+                        advantage. Generating and maintaining entanglement is one of the hardest
+                        challenges in building quantum computers.
+                    </div>
+                    <div class="code-tabs">
+                        <div class="code-tabs-header">
+                            <button class="code-tab-btn active" data-tab="qiskit">Qiskit</button>
+                            <button class="code-tab-btn" data-tab="qsharp">Q#</button>
+                        </div>
+                        <div class="code-tab-content active" data-tab="qiskit"><pre>
+from qiskit import QuantumCircuit
+from qiskit.quantum_info import Statevector
+
+# Create Bell state |Φ+⟩
+qc = QuantumCircuit(2)
+qc.h(0)
+qc.cx(0, 1)
+
+state = Statevector.from_instruction(qc)
+print(state)  # [0.707, 0, 0, 0.707]
+# Only |00⟩ and |11⟩ have amplitude — perfectly correlated!
+</pre></div>
+                        <div class="code-tab-content" data-tab="qsharp"><pre>
+import Std.Diagnostics.*;
+
+operation BellState() : (Result, Result) {
+    use (q0, q1) = (Qubit(), Qubit());
+    H(q0);
+    CNOT(q0, q1);
+    DumpMachine(); // |00⟩ + |11⟩, each with 50%
+
+    let (r0, r1) = (M(q0), M(q1));
+    ResetAll([q0, q1]);
+    return (r0, r1); // Always correlated!
+}
+</pre></div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="lesson" id="lesson-4-2">
+                <div class="lesson-video">
+                    <video controls preload="metadata">
+                        <source src="videos/QuantumTeleportationScene.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="lesson-content">
+                    <span class="lesson-tag">Lesson 4.2</span>
+                    <h3>Quantum Teleportation</h3>
+                    <p>
+                        Quantum teleportation sounds like science fiction, but it's a real, experimentally
+                        verified protocol. It transfers an <em>unknown</em> quantum state from one location
+                        to another — without physically moving the qubit.
+                    </p>
+                    <p><strong>What you need:</strong></p>
+                    <ul>
+                        <li>The qubit to teleport: |ψ⟩ = α|0⟩ + β|1⟩ (Alice has this)</li>
+                        <li>A shared Bell pair: one half with Alice, one half with Bob</li>
+                        <li>A classical communication channel (phone, internet, etc.)</li>
+                    </ul>
+                    <p><strong>The protocol, step by step:</strong></p>
+                    <ol>
+                        <li><strong>Preparation:</strong> Alice and Bob each take one qubit from a shared Bell pair |Φ⁺⟩.</li>
+                        <li><strong>Alice's interaction:</strong> Alice applies CNOT between her unknown qubit and her Bell qubit, then applies Hadamard to her unknown qubit.</li>
+                        <li><strong>Alice measures:</strong> She measures both her qubits, getting two classical bits (00, 01, 10, or 11). This collapses the entanglement — Bob's qubit is now in a state that's <em>close</em> to |ψ⟩ but possibly rotated.</li>
+                        <li><strong>Classical message:</strong> Alice sends her 2 measurement bits to Bob (by phone, email, carrier pigeon — any classical channel).</li>
+                        <li><strong>Bob's correction:</strong> Based on Alice's bits, Bob applies X and/or Z corrections:
+                            <ul>
+                                <li>00 → do nothing</li>
+                                <li>01 → apply X</li>
+                                <li>10 → apply Z</li>
+                                <li>11 → apply X then Z</li>
+                            </ul>
+                            Bob now has the exact state |ψ⟩!
+                        </li>
+                    </ol>
+                    <p><strong>Important constraints:</strong></p>
+                    <ul>
+                        <li><strong>No cloning:</strong> Alice's original qubit is destroyed during measurement. You cannot copy quantum states.</li>
+                        <li><strong>No FTL communication:</strong> Bob needs Alice's classical bits to correct his qubit. Without them, his qubit looks random. The speed of light is not violated.</li>
+                        <li><strong>The Bell pair is consumed:</strong> Each teleportation uses up one entangled pair. It's a one-shot resource.</li>
+                    </ul>
+                    <p>
+                        <strong>Real-world applications:</strong> Teleportation is the foundation of
+                        <em>quantum networks</em> (a "quantum internet"), <em>quantum error correction</em>
+                        (moving logical qubits between physical locations), and <em>distributed quantum computing</em>.
+                    </p>
+                    <div class="key-insight">
+                        <strong>Key Insight:</strong> Teleportation transfers quantum information using
+                        entanglement + classical communication. It doesn't transmit matter or energy —
+                        it transmits the <em>state</em>. This is the primitive that makes quantum
+                        networking possible.
+                    </div>
+                </div>
+            </article>
+
+            <article class="lesson" id="lesson-4-3">
+                <div class="lesson-video">
+                    <video controls preload="metadata">
+                        <source src="videos/SuperdenseCodingScene.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="lesson-content">
+                    <span class="lesson-tag">Lesson 4.3</span>
+                    <h3>Superdense Coding</h3>
+                    <p>
+                        Superdense coding is the <em>mirror image</em> of teleportation. Where teleportation
+                        sends 1 qubit of quantum information using 2 classical bits + entanglement,
+                        superdense coding sends <strong>2 classical bits using 1 qubit</strong> + entanglement.
+                    </p>
+                    <p><strong>The setup:</strong> Alice and Bob share a Bell pair, then part ways. Alice
+                        wants to send Bob a 2-bit classical message (00, 01, 10, or 11).</p>
+                    <p><strong>Alice's encoding — she applies one gate to her qubit:</strong></p>
+                    <ul>
+                        <li>To send <code>00</code> → apply <strong>I</strong> (do nothing) → state remains |Φ⁺⟩</li>
+                        <li>To send <code>01</code> → apply <strong>X</strong> (bit flip) → state becomes |Ψ⁺⟩</li>
+                        <li>To send <code>10</code> → apply <strong>Z</strong> (phase flip) → state becomes |Φ⁻⟩</li>
+                        <li>To send <code>11</code> → apply <strong>XZ</strong> (both) → state becomes |Ψ⁻⟩</li>
+                    </ul>
+                    <p>
+                        Each gate steers the shared Bell pair into a <em>different</em> Bell state.
+                        Since the four Bell states are orthogonal (perfectly distinguishable),
+                        Bob can tell them apart with certainty.
+                    </p>
+                    <p><strong>Bob's decoding:</strong> He applies CNOT then H to his two qubits and measures.
+                        The measurement result (00, 01, 10, or 11) is exactly Alice's original message.
+                    </p>
+                    <p><strong>Why this is remarkable:</strong></p>
+                    <ul>
+                        <li>Classically, 1 bit of communication carries 1 bit of information. Period.</li>
+                        <li>With shared entanglement, 1 qubit of communication carries <strong>2 bits</strong> of information.</li>
+                        <li>The entanglement was shared in advance — it doesn't itself carry information, but it <em>doubles the channel capacity</em>.</li>
+                    </ul>
+                    <p>
+                        <strong>The deep connection:</strong> Teleportation and superdense coding are "dual" protocols —
+                        they trade the roles of quantum and classical resources. Together, they reveal that
+                        entanglement is a genuine communication resource, as fundamental as bandwidth.
+                    </p>
+                    <div class="key-insight">
+                        <strong>Key Insight:</strong> Superdense coding proves entanglement has real
+                        information-theoretic value: it doubles the classical capacity of a quantum channel.
+                        Entanglement is not just a curiosity — it's a resource.
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Module 5: Algorithms -->
+    <section id="algorithms" class="module" data-module="5">
+        <div class="module-header">
+            <span class="module-number">05</span>
+            <h2 class="module-title">Quantum Algorithms</h2>
+            <p class="module-desc">Where quantum mechanics delivers computational advantage — from search to factoring.</p>
+        </div>
+
+        <div class="lessons">
+            <article class="lesson" id="lesson-5-1">
+                <div class="lesson-video">
+                    <video controls preload="metadata">
+                        <source src="videos/DeutschJozsaScene.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="lesson-content">
+                    <span class="lesson-tag">Lesson 5.1</span>
+                    <h3>Deutsch-Jozsa Algorithm</h3>
+                    <p>
+                        The Deutsch-Jozsa algorithm is historically important: it was the first to prove
+                        that a quantum computer can be <em>exponentially</em> faster than a classical one
+                        for a specific problem.
+                    </p>
+                    <p><strong>The problem:</strong> You're given a black-box function (an "oracle")
+                        that takes n-bit inputs and returns 0 or 1. You're <em>promised</em> it's
+                        one of two types:</p>
+                    <ul>
+                        <li><strong>Constant:</strong> Returns the same value (all 0s or all 1s) for every input</li>
+                        <li><strong>Balanced:</strong> Returns 0 for exactly half the inputs and 1 for the other half</li>
+                    </ul>
+                    <p><strong>Which type is it?</strong></p>
+                    <p><strong>Classical approach:</strong> In the worst case, you must check
+                        2ⁿ⁻¹ + 1 inputs. For 100 bits, that's over 10²⁹ queries — more than the
+                        age of the universe in nanoseconds.</p>
+                    <p><strong>Quantum approach:</strong> Exactly <strong>1 query</strong>. Always. Regardless of n.</p>
+                    <p><strong>How it works:</strong></p>
+                    <ol>
+                        <li><strong>Superposition:</strong> Apply Hadamard to all n input qubits, creating a superposition of all 2ⁿ inputs</li>
+                        <li><strong>Oracle query:</strong> Feed the superposition through the oracle. Thanks to superposition, the oracle is evaluated on <em>all inputs simultaneously</em></li>
+                        <li><strong>Interference:</strong> Apply Hadamard again. If the function is constant, all amplitudes constructively interfere at |00...0⟩. If balanced, they destructively interfere, giving |00...0⟩ probability zero.</li>
+                        <li><strong>Measure:</strong> If you measure all zeros → constant. Anything else → balanced.</li>
+                    </ol>
+                    <div class="key-insight">
+                        <strong>Key Insight:</strong> Deutsch-Jozsa proves exponential quantum advantage
+                        is real. The playbook — superposition, parallel oracle evaluation, interference —
+                        is the template for all quantum algorithms that follow.
+                    </div>
+                    <div class="code-tabs">
+                        <div class="code-tabs-header">
+                            <button class="code-tab-btn active" data-tab="qiskit">Qiskit</button>
+                            <button class="code-tab-btn" data-tab="qsharp">Q#</button>
+                        </div>
+                        <div class="code-tab-content active" data-tab="qiskit"><pre>
+from qiskit import QuantumCircuit
+
+def deutsch_jozsa(oracle: QuantumCircuit, n: int):
+    qc = QuantumCircuit(n + 1, n)
+    qc.x(n)               # Ancilla to |1⟩
+    qc.h(range(n + 1))    # Superposition on all
+    qc.compose(oracle, inplace=True)  # Query oracle
+    qc.h(range(n))        # Hadamard on input qubits
+    qc.measure(range(n), range(n))
+    return qc
+
+# Constant oracle: f(x) = 0 for all x
+oracle = QuantumCircuit(3)
+# (identity — does nothing)
+circuit = deutsch_jozsa(oracle, 2)
+print(circuit.draw())
+</pre></div>
+                        <div class="code-tab-content" data-tab="qsharp"><pre>
+import Std.Diagnostics.*;
+
+operation DeutschJozsa(
+    oracle : Qubit[] => Unit,
+    n : Int
+) : Bool {  // true = constant, false = balanced
+    use qubits = Qubit[n];
+    for q in qubits { H(q); }  // Superposition
+    oracle(qubits);             // Query oracle
+    for q in qubits { H(q); }  // Interference
+
+    // Measure: all zeros → constant
+    mutable allZero = true;
+    for q in qubits {
+        if M(q) == One { set allZero = false; }
+        Reset(q);
+    }
+    return allZero;
+}
+</pre></div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="lesson" id="lesson-5-2">
+                <div class="lesson-video">
+                    <video controls preload="metadata">
+                        <source src="videos/GroversSearchScene.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="lesson-content">
+                    <span class="lesson-tag">Lesson 5.2</span>
+                    <h3>Grover's Search Algorithm</h3>
+                    <p>
+                        Imagine searching an unsorted database of 1 million records for a specific entry.
+                        Classically, you'd check each record one by one — 500,000 checks on average.
+                        Grover's algorithm finds it in just ~1,000 checks. That's a <strong>quadratic speedup</strong>.
+                    </p>
+                    <p><strong>The problem:</strong> Given N items and an oracle that recognizes the target,
+                        find the target.</p>
+                    <ul>
+                        <li><strong>Classical:</strong> O(N) queries — linear in the database size</li>
+                        <li><strong>Quantum (Grover):</strong> O(√N) queries — square root of the database size</li>
+                    </ul>
+                    <p><strong>How amplitude amplification works (the core mechanism):</strong></p>
+                    <p>Start with all N items in equal superposition (each has amplitude 1/√N). Then repeat:</p>
+                    <ol>
+                        <li><strong>Oracle step:</strong> The oracle "marks" the target by flipping its amplitude
+                            from positive to negative. Visually, in the animation, you'll see one bar dip below zero.</li>
+                        <li><strong>Diffusion step:</strong> Reflect all amplitudes about their mean. This pushes
+                            the marked item's amplitude further from the mean (making it larger) and shrinks
+                            the others. Think of it as contrast enhancement.</li>
+                    </ol>
+                    <p>
+                        Each iteration increases the target's probability by roughly <code>O(1/√N)</code>.
+                        After <strong>~(π/4)√N iterations</strong>, the target has near-100% probability.
+                    </p>
+                    <p><strong>Geometric picture:</strong> The state vector lives in a 2D plane spanned by
+                        the target state |w⟩ and the uniform superposition |s⟩. Each Grover iteration
+                        rotates the state vector by angle 2θ toward |w⟩, where θ = arcsin(1/√N).
+                    </p>
+                    <p><strong>Practical impact:</strong></p>
+                    <ul>
+                        <li><strong>Database search:</strong> N = 10¶ → 1,000 queries instead of 500,000</li>
+                        <li><strong>Cryptography:</strong> Grover's algorithm halves the effective key length of symmetric ciphers. AES-256 becomes AES-128 equivalent against a quantum adversary — this is why NIST recommends doubling key sizes.</li>
+                        <li><strong>Optimization:</strong> Amplitude amplification is used as a subroutine in many other quantum algorithms</li>
+                    </ul>
+                    <p>
+                        <strong>Limitation:</strong> This is provably optimal — no quantum algorithm can
+                        search faster than O(√N). Quadratic, not exponential.
+                    </p>
+                    <div class="key-insight">
+                        <strong>Key Insight:</strong> Grover's algorithm provides a universal quadratic speedup
+                        for any unstructured search. It's not as dramatic as Shor's exponential speedup,
+                        but it applies to a far wider range of problems — anywhere you have "check if this
+                        answer is correct."
+                    </div>
+                    <div class="code-tabs">
+                        <div class="code-tabs-header">
+                            <button class="code-tab-btn active" data-tab="qiskit">Qiskit</button>
+                            <button class="code-tab-btn" data-tab="qsharp">Q#</button>
+                        </div>
+                        <div class="code-tab-content active" data-tab="qiskit"><pre>
+from qiskit import QuantumCircuit
+from qiskit.circuit.library import GroverOperator
+
+# Oracle marks |11⟩ (target state)
+oracle = QuantumCircuit(2)
+oracle.cz(0, 1)  # Flip phase of |11⟩
+
+grover_op = GroverOperator(oracle)
+qc = QuantumCircuit(2, 2)
+qc.h([0, 1])                          # Superposition
+qc.compose(grover_op, inplace=True)   # One Grover iteration
+qc.measure([0, 1], [0, 1])
+
+print(qc.draw())
+# High probability of measuring |11⟩
+</pre></div>
+                        <div class="code-tab-content" data-tab="qsharp"><pre>
+import Std.Arrays.*;
+import Std.Diagnostics.*;
+
+operation Grover2Qubit() : Result[] {
+    use qubits = Qubit[2];
+    // Superposition
+    for q in qubits { H(q); }
+
+    // Oracle: mark |11⟩ with phase flip
+    CZ(qubits[0], qubits[1]);
+
+    // Diffusion operator
+    for q in qubits { H(q); X(q); }
+    CZ(qubits[0], qubits[1]);
+    for q in qubits { X(q); H(q); }
+
+    let results = MeasureEachZ(qubits);
+    ResetAll(qubits);
+    return results;  // High probability of [One, One]
+}
+</pre></div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="lesson" id="lesson-5-3">
+                <div class="lesson-video">
+                    <video controls preload="metadata">
+                        <source src="videos/QFTScene.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="lesson-content">
+                    <span class="lesson-tag">Lesson 5.3</span>
+                    <h3>Quantum Fourier Transform</h3>
+                    <p>
+                        The <strong>Fourier transform</strong> converts signals between time and frequency
+                        representations. It's one of the most important tools in all of science and engineering.
+                        The quantum version does the same thing, but <em>exponentially faster</em>.
+                    </p>
+                    <p><strong>What the QFT computes:</strong></p>
+                    <div class="math-block">|j⟩ → (1/√N) Σ e^(2πijk/N) |k⟩</div>
+                    <p>
+                        It transforms amplitudes in the computational basis into amplitudes in the
+                        frequency basis — exactly like the classical Discrete Fourier Transform (DFT),
+                        but acting on quantum states.
+                    </p>
+                    <p><strong>Speed comparison:</strong></p>
+                    <ul>
+                        <li><strong>Classical DFT:</strong> O(N²) naively, O(N log N) with FFT</li>
+                        <li><strong>Quantum QFT:</strong> O(n²) where n = log₂ N — that's O((log N)²)</li>
+                    </ul>
+                    <p>
+                        For N = 2³⁰ (about 1 billion), the classical FFT needs ~30 billion operations.
+                        The QFT needs ~900 gates. That's the exponential advantage.
+                    </p>
+                    <p><strong>Roots of unity — the math behind the scenes:</strong></p>
+                    <p>
+                        The QFT works with the N-th roots of unity: ω = e^(2πi/N). These are N points
+                        equally spaced on the unit circle in the complex plane. Controlled-phase gates
+                        implement the different powers of ω, creating the precise phase relationships
+                        needed for the transform.
+                    </p>
+                    <p><strong>The QFT circuit pattern:</strong> For n qubits, the circuit follows
+                        a systematic pattern:</p>
+                    <ol>
+                        <li>Apply H to the first qubit</li>
+                        <li>Apply controlled-R₂ (from qubit 2 to qubit 1), then controlled-R₃ (from qubit 3 to qubit 1), and so on</li>
+                        <li>Move to the next qubit and repeat with fewer controlled rotations</li>
+                        <li>Finish with SWAP gates to reverse the qubit order</li>
+                    </ol>
+                    <p><strong>The catch:</strong> You can't directly read the Fourier-transformed amplitudes
+                        (measurement is still probabilistic). But QFT is used as a <em>subroutine</em>
+                        inside larger algorithms — particularly Shor's algorithm and quantum phase estimation.
+                    </p>
+                    <div class="key-insight">
+                        <strong>Key Insight:</strong> The QFT is the engine inside Shor's algorithm.
+                        It converts period information (encoded in phases) into measurement outcomes.
+                        Its exponential speedup over classical FFT is what makes quantum factoring possible.
+                    </div>
+                </div>
+            </article>
+
+            <article class="lesson" id="lesson-5-4">
+                <div class="lesson-video">
+                    <video controls preload="metadata">
+                        <source src="videos/ShorsAlgorithmScene.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="lesson-content">
+                    <span class="lesson-tag">Lesson 5.4</span>
+                    <h3>Shor's Algorithm</h3>
+                    <p>
+                        Shor's algorithm is arguably the most famous quantum algorithm — and the most consequential.
+                        It can factor large numbers in <strong>polynomial time</strong>, directly threatening
+                        the RSA cryptosystem that secures most internet traffic today.
+                    </p>
+                    <p><strong>The factoring problem:</strong> Given N = p × q (where p, q are large primes),
+                        find p and q. Example: 15 = 3 × 5 is easy. But when N has 600+ digits,
+                        no classical algorithm can solve this in any reasonable time.</p>
+                    <p><strong>Complexity comparison:</strong></p>
+                    <ul>
+                        <li><strong>Best classical</strong> (General Number Field Sieve): O(e^(n¹˳³)) — sub-exponential, still impractical for large N</li>
+                        <li><strong>Shor's quantum algorithm:</strong> O(n³) — polynomial! A 2048-bit number would take ~2048³ ≈ 10¹⁹ operations</li>
+                    </ul>
+                    <p><strong>The brilliant insight — reducing factoring to period finding:</strong></p>
+                    <p>Shor showed that factoring N is equivalent to finding the <em>period</em> of a
+                        function f(x) = aˣ mod N for a random a. This period r reveals the factors:</p>
+                    <div class="math-block">If r is even: factors = gcd(a^(r/2) + 1, N) and gcd(a^(r/2) - 1, N)</div>
+                    <p><strong>The algorithm's four steps:</strong></p>
+                    <ol>
+                        <li><strong>Classical preprocessing:</strong> Pick a random a &lt; N. Check if gcd(a, N) > 1 — if so, you're done (this is rare but possible).</li>
+                        <li><strong>Quantum period finding:</strong> Create a superposition of all x values, compute aˣ mod N in superposition, then apply the <strong>QFT</strong> to extract the period r from the resulting interference pattern.</li>
+                        <li><strong>Classical postprocessing:</strong> Use continued fractions to extract r from the QFT measurement, then compute gcd(a^(r/2) ± 1, N).</li>
+                        <li><strong>Repeat if needed:</strong> Some choices of a or measurement outcomes don't yield factors. Repeat with a new random a (~2-3 attempts typically suffice).</li>
+                    </ol>
+                    <p><strong>Real-world implications:</strong></p>
+                    <ul>
+                        <li><strong>RSA encryption:</strong> Based on the assumption that factoring is hard. A large enough quantum computer would break RSA-2048 in hours.</li>
+                        <li><strong>Post-quantum cryptography:</strong> NIST has already standardized new encryption algorithms (lattice-based, hash-based) that resist quantum attacks.</li>
+                        <li><strong>Timeline:</strong> Current quantum computers can factor small numbers (15, 21). Factoring RSA-2048 requires ~4,000+ logical qubits with error correction — likely 10-20+ years away, but active research is accelerating.</li>
+                        <li><strong>"Harvest now, decrypt later":</strong> Adversaries may already be storing encrypted data today to decrypt when quantum computers arrive. This is why the migration to post-quantum cryptography is urgent.</li>
+                    </ul>
+                    <div class="key-insight">
+                        <strong>Key Insight:</strong> Shor's algorithm is the reason quantum computing matters
+                        to global security. It transforms an intractable problem (factoring) into a feasible one,
+                        using the QFT to extract hidden periodicity. This single algorithm has reshaped
+                        cryptography, national security strategy, and technology investment worldwide.
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Module 6: Noise, Errors & Hardware -->
+    <section id="hardware" class="module" data-module="6">
+        <div class="module-header">
+            <span class="module-number">06</span>
+            <h2 class="module-title">Noise, Errors & Hardware</h2>
+            <p class="module-desc">Real quantum computers are noisy — understanding errors and hardware is essential for any quantum engineer.</p>
+        </div>
+
+        <div class="lessons">
+            <article class="lesson visible" id="lesson-6-1">
+                <div class="lesson-video">
+                    <video controls preload="metadata">
+                        <source src="videos/NoiseDecoherenceScene.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="lesson-content">
+                    <span class="lesson-tag">Lesson 6.1</span>
+                    <h3>Quantum Noise & Decoherence</h3>
+                    <p>
+                        Real qubits are extremely fragile. They interact with their environment —
+                        stray electromagnetic fields, thermal vibrations, cosmic rays — and lose
+                        their quantum properties. This process is called <strong>decoherence</strong>.
+                    </p>
+                    <p><strong>Two types of noise:</strong></p>
+                    <ul>
+                        <li><strong>T₁ (relaxation):</strong> The qubit decays from |1⟩ to |0⟩ over time, like a ball rolling downhill. Typical T₁ ≈ 50–300 μs for superconducting qubits.</li>
+                        <li><strong>T₂ (dephasing):</strong> The qubit loses its phase information (the φ angle on the Bloch sphere randomizes). Usually T₂ ≤ T₁. This destroys interference — the engine of quantum computing.</li>
+                    </ul>
+                    <p><strong>Common noise models:</strong></p>
+                    <ul>
+                        <li><strong>Bit flip (X error):</strong> |0⟩ ↔ |1⟩ with probability p — analogous to classical bit errors</li>
+                        <li><strong>Phase flip (Z error):</strong> |+⟩ ↔ |−⟩ with probability p — no classical analog</li>
+                        <li><strong>Depolarizing:</strong> Replaces the qubit with a maximally random state with probability p — the "worst case" noise</li>
+                        <li><strong>Amplitude damping:</strong> Models energy loss (T₁ decay) — |1⟩ → |0⟩ probabilistically</li>
+                    </ul>
+                    <p><strong>Gate fidelity:</strong> Each gate operation has an error rate. Current hardware achieves ~99.5% for single-qubit gates and ~99% for two-qubit gates. Sounds good, but after 1,000 gates, the accumulated error makes results meaningless.</p>
+                    <p><strong>The coherence budget:</strong> You have limited time (T₂) to run your circuit. Each gate takes 20–50 ns. A circuit with 1,000 gates takes ~50 μs — barely within the coherence window. This constrains circuit depth and algorithm design.</p>
+                    <div class="key-insight">
+                        <strong>Key Insight:</strong> Decoherence is the #1 enemy of quantum computing.
+                        Every quantum algorithm must finish before the qubits "forget" their quantum state.
+                        This time constraint fundamentally shapes what's possible on near-term hardware.
+                    </div>
+                </div>
+            </article>
+
+            <article class="lesson visible" id="lesson-6-2">
+                <div class="lesson-video">
+                    <video controls preload="metadata">
+                        <source src="videos/ErrorCorrectionScene.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="lesson-content">
+                    <span class="lesson-tag">Lesson 6.2</span>
+                    <h3>Quantum Error Correction</h3>
+                    <p>
+                        Classical error correction is simple: copy the bit 3 times (000 or 111) and
+                        take a majority vote. But quantum mechanics forbids copying (no-cloning theorem)
+                        and measurement destroys the state. So how do we fix errors?
+                    </p>
+                    <p><strong>The breakthrough insight:</strong> Encode 1 <em>logical qubit</em> into
+                        many <em>physical qubits</em> using entanglement, then detect errors by measuring
+                        <em>correlations</em> (syndromes) without measuring the data itself.</p>
+                    <p><strong>Key quantum error correction codes:</strong></p>
+                    <ul>
+                        <li><strong>3-Qubit Bit Flip Code:</strong> Encodes |ψ⟩ into 3 qubits. Detects and corrects single X errors. Like classical repetition code, but quantum.</li>
+                        <li><strong>Shor's 9-Qubit Code:</strong> First code to correct <em>any</em> single-qubit error (X, Y, or Z). Uses 9 physical qubits per logical qubit.</li>
+                        <li><strong>Steane Code [[7,1,3]]:</strong> 7 physical qubits per logical qubit. More efficient than Shor's code.</li>
+                        <li><strong>Surface Code:</strong> The leading candidate for real hardware. Qubits arranged on a 2D grid. High error threshold (~1%) — if physical error rates are below 1%, adding more qubits <em>improves</em> reliability. Google, IBM, and others are pursuing this.</li>
+                    </ul>
+                    <p><strong>The overhead problem:</strong></p>
+                    <ul>
+                        <li>Surface code: ~1,000 physical qubits per logical qubit for useful error correction</li>
+                        <li>Running Shor's algorithm on RSA-2048: ~4,000 logical qubits × 1,000 physical = ~4 million physical qubits</li>
+                        <li>Current hardware: ~1,000 physical qubits (IBM, Google). The gap is enormous.</li>
+                    </ul>
+                    <p><strong>Syndrome measurement:</strong> Special "ancilla" qubits measure the error syndrome
+                        (which errors occurred) without disturbing the logical data. This is done through
+                        carefully designed CNOT circuits that extract parity information.</p>
+                    <div class="key-insight">
+                        <strong>Key Insight:</strong> Quantum error correction is what separates toy demos
+                        from useful quantum computers. The surface code is the leading approach, but the
+                        ~1000x overhead means fault-tolerant quantum computing requires millions of physical qubits.
+                    </div>
+                </div>
+            </article>
+
+            <article class="lesson visible" id="lesson-6-3">
+                <div class="lesson-video">
+                    <video controls preload="metadata">
+                        <source src="videos/HardwarePlatformsScene.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="lesson-content">
+                    <span class="lesson-tag">Lesson 6.3</span>
+                    <h3>Quantum Hardware Platforms</h3>
+                    <p>
+                        There are several competing technologies for building physical qubits.
+                        Each has tradeoffs between coherence time, gate fidelity, connectivity, and scalability.
+                    </p>
+                    <p><strong>Superconducting Qubits</strong> (Google, IBM, Rigetti)</p>
+                    <ul>
+                        <li>Tiny circuits cooled to 15 millikelvin (colder than outer space)</li>
+                        <li>Fast gates (~20–50 ns), but short coherence (~100 μs)</li>
+                        <li>Limited connectivity (nearest-neighbor on a chip)</li>
+                        <li>Currently leading in qubit count (~1,000+)</li>
+                        <li>Google's Sycamore achieved "quantum supremacy" (2019)</li>
+                    </ul>
+                    <p><strong>Trapped Ions</strong> (IonQ, Quantinuum, AQT)</p>
+                    <ul>
+                        <li>Individual atoms trapped by electromagnetic fields and manipulated with lasers</li>
+                        <li>Excellent coherence (seconds to minutes!)</li>
+                        <li>Highest gate fidelities (>99.9% single-qubit, >99.5% two-qubit)</li>
+                        <li>All-to-all connectivity (any qubit can interact with any other)</li>
+                        <li>Slower gates (~1–100 μs) and harder to scale beyond ~50 qubits currently</li>
+                    </ul>
+                    <p><strong>Photonic Qubits</strong> (Xanadu, PsiQuantum)</p>
+                    <ul>
+                        <li>Qubits are photons (particles of light)</li>
+                        <li>Room temperature operation — no cryogenics needed</li>
+                        <li>Naturally suited for quantum networking and communication</li>
+                        <li>Hard to make photons interact (needed for two-qubit gates)</li>
+                        <li>Measurement-based quantum computing model</li>
+                    </ul>
+                    <p><strong>Other platforms:</strong> Neutral atoms (QuEra), topological qubits (Microsoft),
+                        silicon spin qubits (Intel), NV centers in diamond. Each is at a different maturity level.</p>
+                    <p><strong>Platform selection:</strong> Superconducting for fastest iteration.
+                        Trapped ions for highest fidelity. Photonic for quantum networking.
+                        Most cloud providers (IBM, Amazon Braket, Azure Quantum) let you try
+                        multiple platforms without owning hardware.</p>
+                    <div class="key-insight">
+                        <strong>Key Insight:</strong> There is no single "best" qubit technology yet.
+                        The race is still wide open. A quantum engineer should understand the tradeoffs
+                        and be platform-aware, not platform-locked.
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Module 7: NISQ Era & Applications -->
+    <section id="nisq" class="module" data-module="7">
+        <div class="module-header">
+            <span class="module-number">07</span>
+            <h2 class="module-title">NISQ Era & Applications</h2>
+            <p class="module-desc">What works today on noisy hardware — variational algorithms, quantum ML, and real-world use cases.</p>
+        </div>
+
+        <div class="lessons">
+            <article class="lesson visible" id="lesson-7-1">
+                <div class="lesson-video">
+                    <video controls preload="metadata">
+                        <source src="videos/VQEScene.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="lesson-content">
+                    <span class="lesson-tag">Lesson 7.1</span>
+                    <h3>Variational Quantum Eigensolver (VQE)</h3>
+                    <p>
+                        NISQ (Noisy Intermediate-Scale Quantum) computers can't run Shor's algorithm — they
+                        have too few qubits and too much noise. But <strong>variational algorithms</strong>
+                        are designed to work <em>within</em> these constraints.
+                    </p>
+                    <p><strong>The VQE idea:</strong> Use a quantum computer for what it's good at (exploring
+                        quantum state space) and a classical computer for what <em>it's</em> good at (optimization).</p>
+                    <ol>
+                        <li><strong>Prepare:</strong> Build a parameterized quantum circuit (ansatz) with tunable rotation angles θ₁, θ₂, ...</li>
+                        <li><strong>Measure:</strong> Run the circuit on quantum hardware, measure the energy ⟨ψ(θ)|H|ψ(θ)⟩</li>
+                        <li><strong>Optimize:</strong> Feed the energy to a classical optimizer (gradient descent, COBYLA, etc.) which adjusts the angles</li>
+                        <li><strong>Repeat:</strong> Iterate until the energy converges to the ground state</li>
+                    </ol>
+                    <p><strong>Why it matters:</strong> Finding the ground state energy of a molecule is
+                        essential for drug discovery, materials science, and chemistry. Classical computers
+                        struggle with this for molecules with more than ~50 electrons. VQE could solve
+                        this for larger molecules using relatively few qubits.</p>
+                    <p><strong>Current status:</strong> VQE has been demonstrated on small molecules
+                        (H₂, LiH, BeH₂) on real hardware. Scaling to commercially relevant molecules
+                        remains a challenge due to noise and the "barren plateau" problem (gradients vanish
+                        in large circuits).</p>
+                    <div class="key-insight">
+                        <strong>Key Insight:</strong> VQE is the hybrid quantum-classical approach that
+                        dominates NISQ research. It's "quantum-assisted optimization" — the quantum
+                        computer proposes states, the classical computer steers the search.
+                    </div>
+                </div>
+            </article>
+
+            <article class="lesson visible" id="lesson-7-2">
+                <div class="lesson-video">
+                    <video controls preload="metadata">
+                        <source src="videos/QAOAScene.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="lesson-content">
+                    <span class="lesson-tag">Lesson 7.2</span>
+                    <h3>QAOA — Quantum Approximate Optimization</h3>
+                    <p>
+                        <strong>QAOA</strong> (Quantum Approximate Optimization Algorithm) applies the same
+                        hybrid quantum-classical idea to <em>combinatorial optimization</em> problems.
+                    </p>
+                    <p><strong>Problems it targets:</strong></p>
+                    <ul>
+                        <li>Max-Cut (graph partitioning)</li>
+                        <li>Traveling salesman</li>
+                        <li>Portfolio optimization</li>
+                        <li>Vehicle routing</li>
+                        <li>Scheduling and resource allocation</li>
+                    </ul>
+                    <p><strong>How QAOA works:</strong></p>
+                    <ol>
+                        <li>Encode the optimization problem as a Hamiltonian (cost function → quantum operator)</li>
+                        <li>Start all qubits in |+⟩ (equal superposition)</li>
+                        <li>Alternate between "cost" layers (encode the problem) and "mixer" layers (explore solutions), each with tunable angles</li>
+                        <li>Measure → get a candidate solution. Classically optimize the angles. Repeat.</li>
+                    </ol>
+                    <p><strong>Depth parameter p:</strong> More layers (higher p) = better approximation
+                        but longer circuits = more noise. Finding the sweet spot is an active research area.</p>
+                    <p>QAOA is the most direct path from quantum hardware to practical value.
+                        If quantum advantage is achievable for optimization, QAOA or its variants
+                        will likely be the first commercially useful quantum algorithms.</p>
+                    <div class="key-insight">
+                        <strong>Key Insight:</strong> QAOA maps real-world optimization problems onto
+                        quantum circuits. It's the leading candidate for near-term quantum advantage
+                        in industry — logistics, finance, and supply chain optimization.
+                    </div>
+                </div>
+            </article>
+
+            <article class="lesson visible" id="lesson-7-3">
+                <div class="lesson-video">
+                    <video controls preload="metadata">
+                        <source src="videos/BB84Scene.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="lesson-content">
+                    <span class="lesson-tag">Lesson 7.3</span>
+                    <h3>Quantum Cryptography (BB84 & QKD)</h3>
+                    <p>
+                        While Shor's algorithm <em>breaks</em> classical encryption, quantum mechanics also
+                        provides <strong>unbreakable encryption</strong> through Quantum Key Distribution (QKD).
+                    </p>
+                    <p><strong>BB84 Protocol</strong> (Bennett & Brassard, 1984):</p>
+                    <ol>
+                        <li><strong>Alice prepares:</strong> For each bit, she randomly chooses one of two bases (rectilinear {|0⟩, |1⟩} or diagonal {|+⟩, |−⟩}) and sends a qubit encoding her bit in that basis.</li>
+                        <li><strong>Bob measures:</strong> He randomly chooses a basis for each qubit. If he picks the same basis as Alice, he gets the correct bit. If not, he gets a random result.</li>
+                        <li><strong>Sifting:</strong> Alice and Bob publicly compare which bases they used (but NOT the bit values). They keep only bits where they chose the same basis — this is the <em>sifted key</em>.</li>
+                        <li><strong>Eavesdropper detection:</strong> They sacrifice a random subset of the sifted key and compare values. If an eavesdropper (Eve) intercepted and re-sent qubits, she'd introduce ~25% errors. If error rate is low, the key is secure.</li>
+                    </ol>
+                    <p><strong>Why it's provably secure:</strong> Any measurement by Eve unavoidably disturbs
+                        the quantum states (no-cloning + measurement disturbance). Alice and Bob can
+                        <em>detect</em> eavesdropping with arbitrary confidence.</p>
+                    <p><strong>Current deployment:</strong> QKD is commercially available (ID Quantique, Toshiba).
+                        China's Micius satellite demonstrated QKD over 1,200 km. Banks and governments are
+                        early adopters. Limited by distance (fiber: ~100 km, satellite: global) and key rates.</p>
+                    <div class="key-insight">
+                        <strong>Key Insight:</strong> QKD is the only encryption method with security
+                        guaranteed by the laws of physics, not computational assumptions. It's already
+                        deployed commercially — quantum cryptography is not future tech, it's present tech.
+                    </div>
+                </div>
+            </article>
+
+            <article class="lesson visible" id="lesson-7-4">
+                <div class="lesson-video">
+                    <video controls preload="metadata">
+                        <source src="videos/QuantumMLScene.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="lesson-content">
+                    <span class="lesson-tag">Lesson 7.4</span>
+                    <h3>Quantum Machine Learning</h3>
+                    <p>
+                        Quantum Machine Learning (QML) sits at the intersection of two revolutions.
+                        The core question: can quantum computers learn patterns faster or find better
+                        models than classical ML?
+                    </p>
+                    <p><strong>Key QML approaches:</strong></p>
+                    <ul>
+                        <li><strong>Quantum Kernel Methods:</strong> Encode classical data into quantum states, then compute inner products (kernels) in the exponentially large Hilbert space. Some datasets may benefit from kernels that are hard to compute classically.</li>
+                        <li><strong>Parameterized Quantum Circuits (PQC):</strong> The quantum analog of neural networks. Tunable quantum circuits trained via gradient descent. Also called "quantum neural networks."</li>
+                        <li><strong>Quantum Boltzmann Machines:</strong> Quantum versions of generative models, potentially sampling from distributions that are hard for classical machines.</li>
+                        <li><strong>HHL Algorithm:</strong> Solves systems of linear equations exponentially faster (with caveats). Linear algebra underlies most of ML — if we could speed it up, the implications would be enormous.</li>
+                    </ul>
+                    <p><strong>Honest assessment of the current state:</strong></p>
+                    <ul>
+                        <li>No quantum ML algorithm has shown clear practical advantage on real-world data <em>yet</em></li>
+                        <li>The "barren plateau" problem makes training large quantum circuits very difficult</li>
+                        <li>Data loading is a bottleneck — encoding classical data into quantum states can negate any speedup</li>
+                        <li>Most promising near-term: quantum kernels on specific structured datasets, and quantum-enhanced reinforcement learning</li>
+                    </ul>
+                    <p>Try PennyLane (Xanadu) or TensorFlow Quantum (Google)
+                        to experiment. Understand the theory before expecting practical results. The field
+                        is rapidly evolving but still in early research stage.</p>
+                    <div class="key-insight">
+                        <strong>Key Insight:</strong> QML is the most hyped and least proven area of quantum
+                        computing. The potential is enormous (exponential feature spaces!), but proven
+                        advantages remain elusive. A quantum engineer should understand the theoretical
+                        foundations without expecting near-term miracles.
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <p class="footer-logo">⟨ψ| QLearn</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
