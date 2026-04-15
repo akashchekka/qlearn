@@ -4,7 +4,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent
 MEDIA = ROOT / "media" / "videos"
-OUT = ROOT / "website" / "videos"
+OUT = ROOT / "docs" / "videos"
 
 # Map scene class names to output filenames
 SCENE_MAP = {
