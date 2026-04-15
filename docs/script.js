@@ -12,7 +12,7 @@
 
     let W, H;
     const particles = [];
-    const PARTICLE_COUNT = 80;
+    const PARTICLE_COUNT = 40;
     const CONNECTION_DIST = 150;
 
     function resize() {
@@ -95,6 +95,22 @@
         { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
     );
     lessons.forEach((el) => observer.observe(el));
+
+    // ── Autoplay videos on scroll ────────────────────────────
+    const videos = document.querySelectorAll(".lesson-video video");
+    const videoObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.play();
+                } else {
+                    entry.target.pause();
+                }
+            });
+        },
+        { threshold: 0.3 }
+    );
+    videos.forEach((v) => videoObserver.observe(v));
 
     // ── Smooth nav active state ──────────────────────────────
     const navLinks = document.querySelectorAll(".nav-links a");
