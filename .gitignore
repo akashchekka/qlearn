@@ -5,3 +5,4 @@ media/
 *.gif
 *.png
 .DS_Store
+.agents
