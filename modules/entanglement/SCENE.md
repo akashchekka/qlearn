@@ -4,17 +4,18 @@
 - **Topic**: Quantum entanglement — Bell states, teleportation, and superdense coding
 - **Hook**: "Einstein called it 'spooky action at a distance.' Here's what it really is — and what it can do"
 - **Target Audience**: Completed Modules 1-4; knows gates and circuits
-- **Estimated Length**: ~15 minutes (3 scenes × ~5 min each)
+- **Estimated Length**: ~20 minutes (4 scenes × ~5 min each)
 - **Key Insight**: Entanglement creates correlations with no classical explanation, enabling teleportation and superdense coding — but never faster-than-light communication
 
 ## Narrative Arc
-We build a Bell state from scratch (H + CNOT), then show two killer applications: teleporting a quantum state and sending 2 classical bits through 1 qubit. Both require a classical channel — no FTL.
+We start by explaining what entanglement actually is — correlated measurement outcomes that can't be explained classically. Then we build a Bell state from scratch (H + CNOT), and show two killer applications: teleporting a quantum state and sending 2 classical bits through 1 qubit. Both require a classical channel — no FTL.
 
 ## Transitions & Flow
-- Scene 1: Bell states — the foundation of entanglement
-- Scene 2: Teleportation — using entanglement + classical bits
-- Scene 3: Superdense coding — the reverse direction
-- Alice is always left/blue, Bob always right/red across all three scenes
+- Scene 1: What is Entanglement — conceptual introduction, EPR, no-FTL
+- Scene 2: Bell states — the mathematical foundation
+- Scene 3: Teleportation — using entanglement + classical bits
+- Scene 4: Superdense coding — the reverse direction
+- Alice is always left/blue, Bob always right/red across all scenes
 
 ## Color Palette
 - Primary: `QORANGE` (#FFA726) — module accent, entangled pair indicators
@@ -24,14 +25,16 @@ We build a Bell state from scratch (H + CNOT), then show two killer applications
 - Success/key: `QGREEN` (#66BB6A)
 
 ## Mathematical Content
+- Entangled state: measuring one qubit instantly determines the other
 - |Φ+⟩ = (|00⟩+|11⟩)/√2, |Φ-⟩, |Ψ+⟩, |Ψ-⟩ (four Bell states)
 - Teleportation: Bell measurement → 2 classical bits → conditional X/Z
 - Superdense coding: {I, X, Z, XZ} encoding → Bell measurement → 2 bits
 
 ## Implementation Order
-1. scene01 (Bell states — foundation)
-2. scene02 (Teleportation — uses Bell states)
-3. scene03 (Superdense coding — reverse of teleportation)
+1. scene01 (What is Entanglement — conceptual intro)
+2. scene02 (Bell states — mathematical foundation)
+3. scene03 (Teleportation — uses Bell states)
+4. scene04 (Superdense coding — reverse of teleportation)
 
 ---
 
@@ -56,7 +59,62 @@ Module accent color: **`QORANGE`** (`#FFA726`). Module number: **5**.
 
 ---
 
-## 5.1 — Bell States (`scene01_bell_states.py`)
+## 5.1 — What Is Entanglement? (`scene01_what_is_entanglement.py`)
+
+- **Class name:** `WhatIsEntanglementScene`
+- **Duration**: ~5 minutes
+- **Purpose**: Build intuition for entanglement before the math
+- **Teaching objective:** Explain quantum entanglement as correlated
+  measurement outcomes that cannot be explained by any classical hidden
+  variable. Introduce the EPR thought experiment, emphasize that
+  entanglement does NOT allow faster-than-light communication.
+
+### Visual Elements
+- Two coins analogy: classical correlated coins vs quantum entangled coins
+- Two qubits separated by distance, measurement on one determines the other
+- "No communication" emphasis with crossed-out FTL arrow
+- Key properties checklist
+
+### Technical Notes
+- Use `Indicate()` on the "no FTL" statement
+- `Circumscribe()` on the key property: "correlation without communication"
+- `FadeIn(mob, shift=...)` for property list items
+- Keep it visual and conceptual — no circuits or matrices in this scene
+
+### Narration Notes
+- Start with Einstein's "spooky action" quote to hook
+- Classical analogy first (paired gloves), then show why quantum is different
+- End with: "entanglement is a resource, not a communication channel"
+
+- **Beats:**
+  1. Title card.
+  2. Classical analogy: paired gloves in boxes — open one, instantly know
+     the other. Label as "classical correlation (hidden variable)".
+  3. Quantum version: two entangled qubits, each in superposition until
+     measured. Measure qubit A → qubit B's outcome is determined. Show
+     both outcomes (|00⟩ and |11⟩) with equal probability.
+  4. Key difference: quantum correlations violate Bell inequalities —
+     no pre-determined values can explain the outcomes. Show a simple
+     "Bell test" diagram (measure in different bases → correlations
+     exceed classical limit). Keep it conceptual, no math.
+  5. No-FTL beat: Alice's measurement gives a random result. She can't
+     choose the outcome. Bob sees random results too until they compare
+     notes via a classical channel. Show crossed-out FTL arrow.
+  6. Properties recap: (a) non-local correlations, (b) no cloning,
+     (c) monogamy of entanglement, (d) resource for protocols.
+- **Color mapping:** qubit A → `QBLUE`, qubit B → `QRED`, entangled
+  pair indicator → `QORANGE`, classical analogy → `QGRAY`, key insight
+  → `QGREEN`, no-FTL cross → `QRED`.
+- **Pitfalls:**
+  - Do NOT depict entanglement as a physical wire or beam connecting qubits.
+  - Do NOT imply Alice can send a message to Bob via entanglement alone.
+  - Do NOT skip the "random outcome" point — it's why FTL fails.
+  - Label the glove analogy explicitly as "not quite right" before
+    showing the quantum version.
+
+---
+
+## 5.2 — Bell States (`scene02_bell_states.py`)
 
 - **Class name:** `BellStatesScene`
 - **Teaching objective:** Build the Bell circuit `H ⊗ I` then `CNOT` on
@@ -83,7 +141,7 @@ Module accent color: **`QORANGE`** (`#FFA726`). Module number: **5**.
 
 ---
 
-## 5.2 — Quantum Teleportation (`scene02_quantum_teleportation.py`)
+## 5.3 — Quantum Teleportation (`scene03_quantum_teleportation.py`)
 
 - **Class name:** `QuantumTeleportationScene`
 - **Teaching objective:** Walk through the teleportation protocol: shared
@@ -110,7 +168,7 @@ Module accent color: **`QORANGE`** (`#FFA726`). Module number: **5**.
 
 ---
 
-## 5.3 — Superdense Coding (`scene03_superdense_coding.py`)
+## 5.4 — Superdense Coding (`scene04_superdense_coding.py`)
 
 - **Class name:** `SuperdenseCodingScene`
 - **Teaching objective:** Show how a shared Bell pair lets Alice send 2

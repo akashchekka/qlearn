@@ -145,13 +145,14 @@
                         <h3>Entanglement & Protocols</h3>
                         <p class="roadmap-time">2 weeks</p>
                         <ul>
+                            <li>What is entanglement &amp; why it matters</li>
                             <li>Bell states and entanglement</li>
                             <li>Quantum teleportation</li>
                             <li>Superdense coding</li>
                             <li>No-cloning theorem</li>
                             <li>Quantum key distribution (BB84)</li>
                         </ul>
-                        <div class="roadmap-modules">Modules 5.1 – 5.3</div>
+                        <div class="roadmap-modules">Modules 5.1 – 5.4</div>
                     </div>
                 </div>
 
@@ -1226,15 +1227,72 @@ If control = |1⟩ → target gets flipped (NOT)</div>
         </div>
 
         <div class="lessons">
-            <article class="lesson" id="lesson-4-1">
+            <!-- 5.1 What Is Entanglement? -->
+            <article class="lesson" id="lesson-5-1">
+                <div class="lesson-video">
+                    <video controls muted loop playsinline preload="metadata">
+                        <source src="videos/WhatIsEntanglementScene.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="lesson-content">
+                    <span class="lesson-tag">Lesson 5.1</span>
+                    <h3>What Is Entanglement?</h3>
+                    <p>
+                        Einstein called it "spooky action at a distance." Schr&ouml;dinger said it was
+                        <em>the</em> defining trait of quantum mechanics. <strong>Entanglement</strong>
+                        is a uniquely quantum correlation between particles that has no classical
+                        explanation &mdash; and it's the key resource behind quantum teleportation,
+                        quantum cryptography, and quantum computing speedups.
+                    </p>
+                    <p><strong>The classical analogy (that falls short):</strong> Put a left glove in
+                        one box and the right glove in another. Ship them to opposite sides of the
+                        world. Open Box&nbsp;A &mdash; if it's the left glove, you instantly know Box&nbsp;B
+                        has the right glove. No mystery here: the gloves had definite identities all
+                        along. This is <em>classical correlation</em>, explained by hidden variables.</p>
+                    <p><strong>Quantum entanglement is fundamentally different.</strong> When two qubits
+                        are entangled in the state |&Phi;&#8314;&rangle; = (|00&rangle; + |11&rangle;)/&radic;2:</p>
+                    <ul>
+                        <li><em>Neither qubit has a definite value</em> until one is measured</li>
+                        <li>Measuring Qubit&nbsp;A gives a <strong>random</strong> result (50/50)</li>
+                        <li>But Qubit&nbsp;B's outcome is <strong>instantly determined</strong> &mdash; always matching</li>
+                        <li>This holds no matter how far apart the qubits are</li>
+                    </ul>
+                    <p><strong>Bell's theorem</strong> (1964) proved mathematically &mdash; and experiments
+                        have confirmed &mdash; that no theory of "hidden variables" can explain these
+                        correlations. The qubits genuinely don't have predetermined values. The outcome
+                        is decided at measurement, and the correlations exceed any classical limit.</p>
+                    <p><strong>Does entanglement allow faster-than-light communication?</strong> No.
+                        Alice's measurement gives a <em>random</em> result she cannot control. Bob also
+                        sees random results. The correlations only become visible when Alice and Bob
+                        <em>compare notes</em> through a classical channel (phone, email, etc.).
+                        Entanglement is a shared resource, not a communication channel.</p>
+                    <p><strong>Key properties of entanglement:</strong></p>
+                    <ul>
+                        <li><strong>Non-local correlations:</strong> Measurement outcomes are correlated beyond any classical explanation</li>
+                        <li><strong>No cloning:</strong> You cannot copy an entangled state</li>
+                        <li><strong>Monogamy:</strong> If A is maximally entangled with B, it cannot be entangled with C</li>
+                        <li><strong>A resource:</strong> Entanglement is consumed by protocols like teleportation &mdash; once used, it's gone</li>
+                    </ul>
+                    <div class="key-insight">
+                        <strong>Key Insight:</strong> Entanglement creates correlations with no classical
+                        explanation. It's not communication &mdash; it's a shared quantum resource that
+                        enables teleportation, secure key distribution, and computational advantage.
+                        Understanding entanglement is the gateway to understanding everything quantum
+                        computers can do that classical computers cannot.
+                    </div>
+                </div>
+            </article>
+
+            <!-- 5.2 Bell States -->
+            <article class="lesson" id="lesson-5-2">
                 <div class="lesson-video">
                     <video controls muted loop playsinline preload="metadata">
                         <source src="videos/BellStatesScene.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="lesson-content">
-                    <span class="lesson-tag">Lesson 5.1</span>
-                    <h3>Bell States & Entanglement</h3>
+                    <span class="lesson-tag">Lesson 5.2</span>
+                    <h3>Bell States</h3>
                     <p>
                         <strong>Entanglement</strong> is the phenomenon that Einstein famously called
                         "spooky action at a distance." It's the strongest type of correlation in nature
@@ -1309,14 +1367,14 @@ operation BellState() : (Result, Result) {
                 </div>
             </article>
 
-            <article class="lesson" id="lesson-4-2">
+            <article class="lesson" id="lesson-5-3">
                 <div class="lesson-video">
                     <video controls muted loop playsinline preload="metadata">
                         <source src="videos/QuantumTeleportationScene.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="lesson-content">
-                    <span class="lesson-tag">Lesson 5.2</span>
+                    <span class="lesson-tag">Lesson 5.3</span>
                     <h3>Quantum Teleportation</h3>
                     <p>
                         Quantum teleportation sounds like science fiction, but it's a real, experimentally
@@ -1365,14 +1423,14 @@ operation BellState() : (Result, Result) {
                 </div>
             </article>
 
-            <article class="lesson" id="lesson-4-3">
+            <article class="lesson" id="lesson-5-4">
                 <div class="lesson-video">
                     <video controls muted loop playsinline preload="metadata">
                         <source src="videos/SuperdenseCodingScene.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="lesson-content">
-                    <span class="lesson-tag">Lesson 5.3</span>
+                    <span class="lesson-tag">Lesson 5.4</span>
                     <h3>Superdense Coding</h3>
                     <p>
                         Superdense coding is the <em>mirror image</em> of teleportation. Where teleportation

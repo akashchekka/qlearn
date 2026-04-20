@@ -47,9 +47,10 @@ All scene files live under `modules/<topic>/`.
 
 | Lesson | File | Scene Class | Topic |
 |--------|------|-------------|-------|
-| 5.1 | `modules/entanglement/scene01_bell_states.py` | `BellStatesScene` | Bell circuit, four Bell states |
-| 5.2 | `modules/entanglement/scene02_quantum_teleportation.py` | `QuantumTeleportationScene` | Teleportation protocol |
-| 5.3 | `modules/entanglement/scene03_superdense_coding.py` | `SuperdenseCodingScene` | Encoding table, decode circuit |
+| 5.1 | `modules/entanglement/scene01_what_is_entanglement.py` | `WhatIsEntanglementScene` | What is entanglement, EPR, no-FTL |
+| 5.2 | `modules/entanglement/scene02_bell_states.py` | `BellStatesScene` | Bell circuit, four Bell states |
+| 5.3 | `modules/entanglement/scene03_quantum_teleportation.py` | `QuantumTeleportationScene` | Teleportation protocol |
+| 5.4 | `modules/entanglement/scene04_superdense_coding.py` | `SuperdenseCodingScene` | Encoding table, decode circuit |
 
 ## Module 6 — Algorithms (`modules/algorithms/`)
 

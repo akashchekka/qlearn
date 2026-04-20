@@ -41,9 +41,10 @@ Animated quantum computing curriculum designed for engineers and managers learni
 ### Module 5: Entanglement
 | Lesson | Topic | Scene Class |
 |--------|-------|-------------|
-| 5.1 | Bell States | `BellStatesScene` |
-| 5.2 | Quantum Teleportation | `QuantumTeleportationScene` |
-| 5.3 | Superdense Coding | `SuperdenseCodingScene` |
+| 5.1 | What Is Entanglement? | `WhatIsEntanglementScene` |
+| 5.2 | Bell States | `BellStatesScene` |
+| 5.3 | Quantum Teleportation | `QuantumTeleportationScene` |
+| 5.4 | Superdense Coding | `SuperdenseCodingScene` |
 
 ### Module 6: Algorithms
 | Lesson | Topic | Scene Class |

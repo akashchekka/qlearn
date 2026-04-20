@@ -46,9 +46,10 @@ SCENES = [
     (4, "modules/gates/scene03_phase_gates.py", "PhaseGatesScene", "4.3 Phase & Rotation Gates"),
     (4, "modules/gates/scene04_multi_qubit_gates.py", "MultiQubitGatesScene", "4.4 Multi-Qubit Gates"),
     # Module 5 — Entanglement
-    (5, "modules/entanglement/scene01_bell_states.py", "BellStatesScene", "5.1 Bell States"),
-    (5, "modules/entanglement/scene02_quantum_teleportation.py", "QuantumTeleportationScene", "5.2 Quantum Teleportation"),
-    (5, "modules/entanglement/scene03_superdense_coding.py", "SuperdenseCodingScene", "5.3 Superdense Coding"),
+    (5, "modules/entanglement/scene01_what_is_entanglement.py", "WhatIsEntanglementScene", "5.1 What Is Entanglement?"),
+    (5, "modules/entanglement/scene02_bell_states.py", "BellStatesScene", "5.2 Bell States"),
+    (5, "modules/entanglement/scene03_quantum_teleportation.py", "QuantumTeleportationScene", "5.3 Quantum Teleportation"),
+    (5, "modules/entanglement/scene04_superdense_coding.py", "SuperdenseCodingScene", "5.4 Superdense Coding"),
     # Module 6 — Algorithms
     (6, "modules/algorithms/scene01_deutsch_jozsa.py", "DeutschJozsaScene", "6.1 Deutsch-Jozsa Algorithm"),
     (6, "modules/algorithms/scene02_grovers_search.py", "GroversSearchScene", "6.2 Grover's Search"),
